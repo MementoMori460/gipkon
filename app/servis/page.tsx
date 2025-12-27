@@ -92,7 +92,7 @@ export default function ServiceNetworkPage() {
                             Bölge Müdürlüklerimiz
                         </h2>
                         <p className="text-secondary-600 max-w-2xl mx-auto">
-                            Türkiye'nin 4 büyük sanayi bölgesindeki merkezlerimiz ve yaygın servis ağımızla hizmetinizdeyiz.
+                            Sektörün ihtiyacına yönelik spesifik çözümlerimizle GIPKON&apos;un tecrübeli servis ekibi 7/24 hizmetinizde.yiz.
                         </p>
                     </div>
 

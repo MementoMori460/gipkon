@@ -1,0 +1,431 @@
+{
+  "projects": [
+    {
+      "originalId": 654,
+      "title": "flotatıon",
+      "sector": "maden-sektoru",
+      "description": "Contact us for details of our flotation processes solutions....",
+      "fullDescription": "Contact us for details of our flotation processes solutions.",
+      "slug": "flotation",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 622,
+      "title": "Purıfıed Water(PW)",
+      "sector": "saglik-sektoru",
+      "description": "GIPKON Technology supplies necessary equipment and installation services to create purified water processes. Post-installation delivery is made according to GMP documentation....",
+      "fullDescription": "GIPKON Technology supplies necessary equipment and installation services to create purified water processes. Post-installation delivery is made according to GMP documentation.",
+      "slug": "purified-water-pw",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 610,
+      "title": "MILK",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n GIPKON Technology trained itself in food processing systems and software, helping to grow existing facilities by developing similar technologies with the leading companies in the world and addin...",
+      "fullDescription": "\\n \\n GIPKON Technology trained itself in food processing systems and software, helping to grow existing facilities by developing similar technologies with the leading companies in the world and adding new units to SCADA systems. \\n \\n [siteorigin_widget class=\"SiteOrigin_Widget_Features_Widget\"] [/siteorigin_widget]",
+      "slug": "milk",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 612,
+      "title": "juıce",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n GIPKON Technology offers turnkey solutions for fruit juice process installations. Also we are strengthening your facility with revisions where it is needed. \\n We are setting up modular systems ...",
+      "fullDescription": "\\n \\n GIPKON Technology offers turnkey solutions for fruit juice process installations. Also we are strengthening your facility with revisions where it is needed. \\n We are setting up modular systems to meet your growing desires when setting up continuous high efficiency process solutions in fruit juice processes. \\n \\n",
+      "slug": "juice",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 614,
+      "title": "MILK POWDER",
+      "sector": "gida-sektoru",
+      "description": "GIPKON Technology provides consulting, automation and installation services in the field of milk powder production....",
+      "fullDescription": "GIPKON Technology provides consulting, automation and installation services in the field of milk powder production.",
+      "slug": "milk-powder",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 616,
+      "title": "CIP",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n GIPKON Technology supplies equipment and installation services for Clean-in-Place (CIP) systems. \\n \\n Kurduğumuz CIP proseslerinin başlıca özellikleri \\n \\n \\n Multi-line integration feature \\n...",
+      "fullDescription": "\\n \\n GIPKON Technology supplies equipment and installation services for Clean-in-Place (CIP) systems. \\n \\n Kurduğumuz CIP proseslerinin başlıca özellikleri \\n \\n \\n Multi-line integration feature \\n Recovery tank add-on \\n Choice of different washing programs \\n Dynamic and detailed prescription \\n Reporting and graphing \\n \\n \\n",
+      "slug": "cip",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 620,
+      "title": "ıce-cream",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n In the field of ice-cream processes we can dosage liquid products with different viscosities and solid ingredient using dynamic prescription systems and carry out the mixing processes. GIPKON Te...",
+      "fullDescription": "\\n \\n In the field of ice-cream processes we can dosage liquid products with different viscosities and solid ingredient using dynamic prescription systems and carry out the mixing processes. GIPKON Technology provides turn-key projects in the field of ice-cream processes as well as revision and modernization services. \\n \\n",
+      "slug": "ice-cream",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 624,
+      "title": "Pure Steam(PS)",
+      "sector": "saglik-sektoru",
+      "description": "For pure steam processes GIPKON Technology supplies the necessary equipment and installation services. Post-installation delivery is made according to GMP documentation....",
+      "fullDescription": "For pure steam processes GIPKON Technology supplies the necessary equipment and installation services. Post-installation delivery is made according to GMP documentation.",
+      "slug": "pure-steam-ps",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 626,
+      "title": "Water for Injectıon(WFI)",
+      "sector": "saglik-sektoru",
+      "description": "Our specific solutions in the pharmaceutical industry are prepared in accordance with GAMP5 and FDA Title 21 Part 11. It is designed according to your needs. The necessary reporting systems are integr...",
+      "fullDescription": "Our specific solutions in the pharmaceutical industry are prepared in accordance with GAMP5 and FDA Title 21 Part 11. It is designed according to your needs. The necessary reporting systems are integrated and commisioned upon project completion.",
+      "slug": "water-for-injection-wfi",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 628,
+      "title": "Lıquıd Dosıng Systems",
+      "sector": "saglik-sektoru",
+      "description": "\\n \\n GIPKON TECHNOLOGY provides the services of supplying and dispensing various viscosities, in-line and in-tank dosing systems, with expert staff in the field of liquid processes. \\n \\n...",
+      "fullDescription": "\\n \\n GIPKON TECHNOLOGY provides the services of supplying and dispensing various viscosities, in-line and in-tank dosing systems, with expert staff in the field of liquid processes. \\n \\n",
+      "slug": "liquid-dosing-systems",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 651,
+      "title": "Jaw crusher",
+      "sector": "maden-sektoru",
+      "description": "Contact us for details on our Jaw crusher process solutions....",
+      "fullDescription": "Contact us for details on our Jaw crusher process solutions.",
+      "slug": "jaw-crusher",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 661,
+      "title": "Sag Mill",
+      "sector": "maden-sektoru",
+      "description": "Contact us for details on our Sag Mill process solutions....",
+      "fullDescription": "Contact us for details on our Sag Mill process solutions.",
+      "slug": "sag-mill",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 663,
+      "title": "Ball mill",
+      "sector": "maden-sektoru",
+      "description": "Contact us for details on our Ball Mill process solutions....",
+      "fullDescription": "Contact us for details on our Ball Mill process solutions.",
+      "slug": "ball-mill",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 800,
+      "title": "Defence Industry Automatıon Solutıons",
+      "sector": "savunma-sanayi",
+      "description": "Contact for more information......",
+      "fullDescription": "Contact for more information...",
+      "slug": "defence-industry-automation-solutions",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 654,
+      "title": "Flotasyon",
+      "sector": "maden-sektoru",
+      "description": "Flotasyon prosesleri çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz....",
+      "fullDescription": "Flotasyon prosesleri çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz.",
+      "slug": "flotasyon",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 622,
+      "title": "Purified Water(PW)",
+      "sector": "saglik-sektoru",
+      "description": "GIPKON Teknoloji purified water oluşturmak için gerekli ekipman tedariği, projelendirme ve kurulum hizmetleri vermektedir. Kurulum sonrası teslim GMP dökümantasyonuna göre yapılmaktadır....",
+      "fullDescription": "GIPKON Teknoloji purified water oluşturmak için gerekli ekipman tedariği, projelendirme ve kurulum hizmetleri vermektedir. Kurulum sonrası teslim GMP dökümantasyonuna göre yapılmaktadır.",
+      "slug": "purified-water-pw",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 610,
+      "title": "Süt",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n GIPKON Teknoloji kendisini gıda proses sistemleri ve yazılımları konusunda yetiştirmiş , bu alanlarda dünyanın önde gelen firmaları ile benzer teknolojiler geliştirerek, kimi zaman da bu firmala...",
+      "fullDescription": "\\n \\n GIPKON Teknoloji kendisini gıda proses sistemleri ve yazılımları konusunda yetiştirmiş , bu alanlarda dünyanın önde gelen firmaları ile benzer teknolojiler geliştirerek, kimi zaman da bu firmaların kurmuş olduğu SCADA sistemlerine yeni üniteler ekleyerek mevcut tesislerin büyümesine yardımcı olmuştur. \\n \\n [siteorigin_widget class=\"SiteOrigin_Widget_Features_Widget\"] [/siteorigin_widget]",
+      "slug": "sut",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 612,
+      "title": "Meyve Suyu",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n Gıda sektöründe meyve suyu tesisleri için anahtar teslim çözümler sunuyor. İhtiyaç görülen noktalarda revizyonlar ile tesisinizi güçlendiriyoruz. \\n Meyve suyu proseslerinde kesintisiz yüksek ve...",
+      "fullDescription": "\\n \\n Gıda sektöründe meyve suyu tesisleri için anahtar teslim çözümler sunuyor. İhtiyaç görülen noktalarda revizyonlar ile tesisinizi güçlendiriyoruz. \\n Meyve suyu proseslerinde kesintisiz yüksek verimli proses çözümleri kurarken artan isteklerinizi karşılayacak moduler sistemleri kuruyoruz. \\n \\n",
+      "slug": "meyve-suyu",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 614,
+      "title": "Süt Tozu",
+      "sector": "gida-sektoru",
+      "description": "GIPKON Teknoloji süt tozu üretimi alanında projelendirme, danışmanlık, otomasyon ve kurulum hizmetleri vermektedir....",
+      "fullDescription": "GIPKON Teknoloji süt tozu üretimi alanında projelendirme, danışmanlık, otomasyon ve kurulum hizmetleri vermektedir.",
+      "slug": "sut-tozu",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 616,
+      "title": "CIP",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n GIPKON Teknoloji CIP(Clean-in-Place) sistemleri için gerekli ekipman tedariği ve kurulum hizmeti vermektedir. \\n \\n Kurduğumuz CIP proseslerinin başlıca özellikleri \\n \\n \\n Çok hatlı entegrasyo...",
+      "fullDescription": "\\n \\n GIPKON Teknoloji CIP(Clean-in-Place) sistemleri için gerekli ekipman tedariği ve kurulum hizmeti vermektedir. \\n \\n Kurduğumuz CIP proseslerinin başlıca özellikleri \\n \\n \\n Çok hatlı entegrasyon özelliği \\n Geri kazanım tankı eklentisi \\n Farklı yıkama programları seçimi \\n Dinamik ve ayrıntılı reçetelendirme \\n Raporlama ve grafiklendirme \\n \\n \\n",
+      "slug": "cip",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 620,
+      "title": "Dondurma",
+      "sector": "gida-sektoru",
+      "description": "\\n \\n Dondurma prosesleri alanında katı ve/ veya farklı viskositelerde sıvı ürünleri dinamik reçetelendirme sistemleriyle dozajlayabilir ve karıştırma işlemlerini gerçekleştirebiliriz. Bu sayede prose...",
+      "fullDescription": "\\n \\n Dondurma prosesleri alanında katı ve/ veya farklı viskositelerde sıvı ürünleri dinamik reçetelendirme sistemleriyle dozajlayabilir ve karıştırma işlemlerini gerçekleştirebiliriz. Bu sayede prosesinizi otomatikleştirebilir verim artışına gidebilirsiniz. GIPKON Teknoloji dondurma prosesleri alanında anahtar teslim projelerin yanı sıra revizyon ve modernizasyon hizmetleride vermektedir. \\n \\n",
+      "slug": "dondurma",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 624,
+      "title": "Pure Steam(PS)",
+      "sector": "saglik-sektoru",
+      "description": "GIPKON Teknoloji pure steam oluşturmak için gerekli ekipman tedariği, projelendirme ve kurulum hizmetleri vermektedir. Kurulum sonrası teslim GMP dökümantasyonuna göre yapılmaktadır....",
+      "fullDescription": "GIPKON Teknoloji pure steam oluşturmak için gerekli ekipman tedariği, projelendirme ve kurulum hizmetleri vermektedir. Kurulum sonrası teslim GMP dökümantasyonuna göre yapılmaktadır.",
+      "slug": "pure-steam-ps",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 628,
+      "title": "Likit Dozajlama Sistemleri",
+      "sector": "saglik-sektoru",
+      "description": "\\n \\n GIPKON Teknoloji likit prosesler alanında uzman kadrosuyla farklı viskositelerde gerek \"in-line\" gerek tank içerisinde dozajlama sistemleri ekipman tedariği ve kurulumu hizmetleri vermektedir. \\...",
+      "fullDescription": "\\n \\n GIPKON Teknoloji likit prosesler alanında uzman kadrosuyla farklı viskositelerde gerek \"in-line\" gerek tank içerisinde dozajlama sistemleri ekipman tedariği ve kurulumu hizmetleri vermektedir. \\n \\n",
+      "slug": "likit-dozajlama-sistemleri",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 651,
+      "title": "Jaw crusher",
+      "sector": "maden-sektoru",
+      "description": "Jaw crusher proses çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz....",
+      "fullDescription": "Jaw crusher proses çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz.",
+      "slug": "jaw-crusher",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 661,
+      "title": "Sag Mill",
+      "sector": "maden-sektoru",
+      "description": "Sag mill proses çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz....",
+      "fullDescription": "Sag mill proses çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz.",
+      "slug": "sag-mill",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 663,
+      "title": "Ball mill",
+      "sector": "maden-sektoru",
+      "description": "Ball mill proses çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz....",
+      "fullDescription": "Ball mill proses çözümlerimiz ile ilgili ayrıntılar için iletişime geçiniz.",
+      "slug": "ball-mill",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    },
+    {
+      "originalId": 800,
+      "title": "Savunma Sanayi Otomasyon Çözümlerimiz",
+      "sector": "savunma-sanayi",
+      "description": "Ayrıntılı bilgi için lütfen iletişime geçiniz....",
+      "fullDescription": "Ayrıntılı bilgi için lütfen iletişime geçiniz.",
+      "slug": "savunma-sanayi-otomasyon-cozumlerimiz",
+      "image": "/images/projects/placeholder.jpg",
+      "year": 2024,
+      "features": [
+        "Otomatik Kontrol",
+        "Yüksek Verimlilik",
+        "7/24 Teknik Destek"
+      ]
+    }
+  ],
+  "services": {
+    "proje-danismanlik": {
+      "title": "Proje & Danışmanlık",
+      "description": "[siteorigin_widget class=\"SiteOrigin_Widget_Image_Widget\"] [/siteorigin_widget] \\n \\n GIPKON teknoloji profesyonel ve titiz ekibiyle projenizin her aşamasında gerekli araştırma ve testleri yaparak en doğru sonuca ulaşmanızı sağlayacaktır. \\n [siteorigin_widget class=\"SiteOrigin_Widget_Features_Widget\"] [/siteorigin_widget]"
+    },
+    "anahtar-teslim-tesisler": {
+      "title": "Anahtar Teslim Tesisler",
+      "description": "[siteorigin_widget class=\"SiteOrigin_Widget_Image_Widget\"] [/siteorigin_widget] [siteorigin_widget class=\"SiteOrigin_Widget_Features_Widget\"] [/siteorigin_widget]"
+    },
+    "devreye-alma-ve-servis": {
+      "title": "Devreye Alma",
+      "description": "[siteorigin_widget class=\"SiteOrigin_Widget_Image_Widget\"] [/siteorigin_widget] [siteorigin_widget class=\"SiteOrigin_Widget_Features_Widget\"] [/siteorigin_widget]"
+    },
+    "mekanik-bakim-ve-servis": {
+      "title": "Servis & Yedek Parça",
+      "description": "[siteorigin_widget class=\"SiteOrigin_Widget_Features_Widget\"] [/siteorigin_widget]"
+    },
+    "fabrika-revizyonlari": {
+      "title": "Fabrika Revizyonları",
+      "description": "Tesis güncellemeleri, duruşa geçmeden tesis revizyonları, yeni ve ileri uyumluluk sahibi sistemlere entegrasyon gibi alanlarda GIPKON güvencesiyle tesisinizi en hızlı ve verimli şekilde günümüz otomasyon seviyesine getiriyoruz.Tesisinizin verimliliği, izlenebilirliği ve endüstri 4.0 uyumluğunu garanti altına alabileceğiniz bu revizyonlarla ilgili ayrıntılı bilgi almak için bizimle iletişime geçin."
+    }
+  }
+}

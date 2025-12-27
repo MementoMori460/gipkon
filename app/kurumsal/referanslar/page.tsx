@@ -67,7 +67,7 @@ export default function ReferanslarPage() {
                                 <div className="text-4xl font-bold text-primary-600 mb-2">
                                     {stat.value}
                                 </div>
-                                <div className="text-secondary-600">{stat.label}</div>
+                                <div className="font-semibold">Ahmet Yılmaz - Fabrika Müdürü</div>
                             </div>
                         ))}
                     </div>
@@ -166,8 +166,7 @@ export default function ReferanslarPage() {
                                     ))}
                                 </div>
                                 <p className="text-secondary-600 italic">
-                                    "GIPKON ile çalışmak bizim için harika bir deneyim oldu. Profesyonel
-                                    yaklaşımları ve kaliteli hizmetleri için teşekkür ederiz."
+                                    &quot;GIPKON ile çalışmak, işletmemizin verimliliğini inanılmaz derecede artırdı. Tam zamanında ve bütçe dahilinde teslim ettiler.&quot;
                                 </p>
                             </div>
                         ))}

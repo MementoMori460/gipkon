@@ -82,9 +82,9 @@ export default function ProjectsPage() {
                                             </div>
                                         ))}
                                     </div>
-                                    <Link href={`/iletisim`}>
+                                    <Link href={`/projeler/${project.slug || project.id}`}>
                                         <Button variant="outline" className="w-full text-sm py-2">
-                                            Detaylı Bilgi <ArrowRight className="w-4 h-4 ml-2" />
+                                            Detaylı İncele <ArrowRight className="w-4 h-4 ml-2" />
                                         </Button>
                                     </Link>
                                 </div>
