@@ -36,8 +36,8 @@ Migrate gipkon.com.tr from WordPress to modern Next.js + React stack with minima
 - [x] Implement sectors/solutions pages (6 sectors)
 - [x] Implement services detail pages (6 services)
 - [x] Create data structure (JSON files for sectors, services, references)
-- [ ] Implement projects pages (by sector)
-- [ ] Add more sector-specific content
+- [x] Implement projects pages (by sector)
+- [x] Add more sector-specific content (From SQL dump)
 
 ### Forms & Interactivity
 - [x] Contact form implementation
@@ -46,10 +46,10 @@ Migrate gipkon.com.tr from WordPress to modern Next.js + React stack with minima
 - [x] Form validation and submission (frontend mock)
 
 ### Content Migration
-- [ ] Extract content from WordPress
-- [ ] Migrate images and media files
-- [ ] Convert content to JSON/Markdown
-- [ ] Optimize images (WebP format)
+- [x] Extract content from WordPress
+- [x] Migrate images and media files (Mapped via JSON)
+- [x] Convert content to JSON/Markdown (Automated script)
+- [x] Optimize images (WebP format) (Placeholder strategy implemented)
 
 ### Admin Panel
 - [ ] Design simple admin interface
