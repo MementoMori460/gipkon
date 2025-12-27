@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "GIPKON Kurumsal Ürün Kataloğu 2024",
+        "description": "Genel ürün gamımız, çözümlerimiz ve referanslarımızı içeren detaylı kurumsal katalog.",
+        "image": "/images/catalogs/catalog-1.jpg",
+        "file": "/downloads/gipkon-genel-katalog-2024.pdf",
+        "size": "4.5 MB",
+        "language": "TR"
+    },
+    {
+        "id": 2,
+        "title": "Gıda Sektörü Çözümleri",
+        "description": "Gıda işleme ve paketleme otomasyon çözümlerimize özel detaylı ürün ve hizmet kataloğu.",
+        "image": "/images/catalogs/catalog-2.jpg",
+        "file": "/downloads/gida-sektoru-cozumleri.pdf",
+        "size": "2.8 MB",
+        "language": "TR"
+    },
+    {
+        "id": 3,
+        "title": "Industrial Automation Solutions (EN)",
+        "description": "Comprehensive guide to our industrial automation solutions for international markets.",
+        "image": "/images/catalogs/catalog-3.jpg",
+        "file": "/downloads/gipkon-automation-solutions-en.pdf",
+        "size": "3.1 MB",
+        "language": "EN"
+    },
+    {
+        "id": 4,
+        "title": "Enerji Yönetim Sistemleri",
+        "description": "Enerji izleme, SCADA ve verimlilik artırıcı çözümlerimizi içeren teknik katalog.",
+        "image": "/images/catalogs/catalog-4.jpg",
+        "file": "/downloads/enerji-yonetim-sistemleri.pdf",
+        "size": "2.2 MB",
+        "language": "TR"
+    }
+]

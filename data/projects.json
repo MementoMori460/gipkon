@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "title": "Süt İşleme Tesisi Otomasyonu",
+        "sector": "gida-sektoru",
+        "year": 2024,
+        "description": "Tam otomatik süt işleme ve paketleme hattı kurulumu. SCADA sistemi ile merkezi kontrol ve izleme.",
+        "image": "/images/projects/project-1.jpg",
+        "features": [
+            "Tam otomatik süt işleme hattı",
+            "SCADA ile merkezi kontrol",
+            "Kalite kontrol entegrasyonu",
+            "Enerji yönetim sistemi"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Tekstil Boyama Tesisi Modernizasyonu",
+        "sector": "tekstil-sektoru",
+        "year": 2024,
+        "description": "Mevcut boyama tesisinin PLC tabanlı otomasyon sistemine geçişi ve verimlilik artışı.",
+        "image": "/images/projects/project-2.jpg",
+        "features": [
+            "PLC tabanlı kontrol sistemi",
+            "Reçete yönetimi",
+            "Su ve kimyasal tasarrufu",
+            "Üretim takip sistemi"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Hastane HVAC Otomasyon Sistemi",
+        "sector": "saglik-sektoru",
+        "year": 2023,
+        "description": "500 yataklı hastane için merkezi HVAC kontrol ve enerji yönetim sistemi.",
+        "image": "/images/projects/project-3.jpg",
+        "features": [
+            "Merkezi HVAC kontrolü",
+            "Oda bazlı sıcaklık kontrolü",
+            "Enerji optimizasyonu",
+            "Alarm ve raporlama"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Otomotiv Montaj Hattı Otomasyonu",
+        "sector": "otomotiv-sektoru",
+        "year": 2023,
+        "description": "Robotik montaj hattı kurulumu ve MES entegrasyonu ile üretim takibi.",
+        "image": "/images/projects/project-4.jpg",
+        "features": [
+            "Robotik montaj sistemleri",
+            "MES entegrasyonu",
+            "Kalite kontrol istasyonları",
+            "Gerçek zamanlı üretim takibi"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Lojistik Depo Otomasyon Sistemi",
+        "sector": "lojistik-sektoru",
+        "year": 2023,
+        "description": "Otomatik depolama ve paletleme sistemi ile WMS entegrasyonu.",
+        "image": "/images/projects/project-5.jpg",
+        "features": [
+            "Otomatik depolama sistemi",
+            "WMS entegrasyonu",
+            "Barkod okuma sistemleri",
+            "Konveyör kontrol sistemi"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Güneş Enerjisi Santrali İzleme Sistemi",
+        "sector": "enerji-sektoru",
+        "year": 2022,
+        "description": "10 MW güneş enerjisi santrali için SCADA tabanlı izleme ve kontrol sistemi.",
+        "image": "/images/projects/project-6.jpg",
+        "features": [
+            "SCADA izleme sistemi",
+            "Performans analizi",
+            "Uzaktan erişim",
+            "Arıza tespit ve alarm"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Gıda Paketleme Hattı Otomasyonu",
+        "sector": "gida-sektoru",
+        "year": 2022,
+        "description": "Yüksek hızlı paketleme hattı otomasyonu ve etiketleme sistemi.",
+        "image": "/images/projects/project-7.jpg",
+        "features": [
+            "Yüksek hızlı paketleme",
+            "Otomatik etiketleme",
+            "Ağırlık kontrolü",
+            "Parti takip sistemi"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Tekstil Kumaş Kesim Otomasyonu",
+        "sector": "tekstil-sektoru",
+        "year": 2022,
+        "description": "CNC kontrollü otomatik kumaş kesim sistemi ve malzeme optimizasyonu.",
+        "image": "/images/projects/project-8.jpg",
+        "features": [
+            "CNC kesim sistemi",
+            "Malzeme optimizasyonu",
+            "Otomatik besleme",
+            "Kalite kontrol kameraları"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Hastane Sterilizasyon Otomasyonu",
+        "sector": "saglik-sektoru",
+        "year": 2021,
+        "description": "Merkezi sterilizasyon ünitesi otomasyonu ve takip sistemi.",
+        "image": "/images/projects/project-9.jpg",
+        "features": [
+            "Otomatik sterilizasyon",
+            "Çevrim takibi",
+            "Dokümentasyon sistemi",
+            "Uygunluk raporlaması"
+        ]
+    }
+]
