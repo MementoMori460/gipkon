@@ -1,24 +1,50 @@
 import Link from "next/link";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import fs from "fs";
+import path from "path";
 
-const quickLinks = [
-    { name: "Anasayfa", href: "/" },
-    { name: "Hakkımızda", href: "/kurumsal/hakkimizda" },
-    { name: "Çözümlerimiz", href: "/cozumler" },
-    { name: "Projelerimiz", href: "/projeler" },
-    { name: "Hizmetlerimiz", href: "/hizmetler" },
-    { name: "Hizmet Talebi", href: "/hizmet-talebi" },
-    { name: "İletişim", href: "/iletisim" },
-];
+async function getSettings() {
+    try {
+        const filePath = path.join(process.cwd(), "data/settings.json");
+        const jsonData = fs.readFileSync(filePath, "utf8");
+        return JSON.parse(jsonData);
+    } catch (error) {
+        return null;
+    }
+}
 
-const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-];
+async function getMenu() {
+    try {
+        const filePath = path.join(process.cwd(), "data/menu.json");
+        const jsonData = fs.readFileSync(filePath, "utf8");
+        return JSON.parse(jsonData);
+    } catch (error) {
+        return null;
+    }
+}
 
-export default function Footer() {
+export default async function Footer() {
+    const settings = await getSettings();
+    const menu = await getMenu();
+
+    // Default values if settings missing
+    const contact = settings?.contact || {};
+    const social = settings?.social || {};
+
+    const address = contact.address || "Adres bilgisi buraya gelecek";
+    const phone = contact.phone || "+90 XXX XXX XX XX";
+    const email = contact.email || "info@gipkon.com.tr";
+
+    const socialLinks = [
+        { icon: Facebook, href: social.facebook || "#", label: "Facebook" },
+        { icon: Twitter, href: social.twitter || "#", label: "Twitter" },
+        { icon: Linkedin, href: social.linkedin || "#", label: "LinkedIn" },
+        { icon: Instagram, href: social.instagram || "#", label: "Instagram" },
+    ];
+
+    const quickLinks = menu?.footer?.quickLinks || [];
+    const services = menu?.footer?.services || [];
+
     return (
         <footer className="bg-secondary-900 text-white">
             {/* Main Footer */}
@@ -35,14 +61,18 @@ export default function Footer() {
                         </p>
                         <div className="flex gap-3">
                             {socialLinks.map((social) => (
-                                <a
-                                    key={social.label}
-                                    href={social.href}
-                                    aria-label={social.label}
-                                    className="w-10 h-10 rounded-lg bg-secondary-800 hover:bg-primary-600 flex items-center justify-center transition-colors"
-                                >
-                                    <social.icon className="w-5 h-5" />
-                                </a>
+                                social.href && social.href !== "#" ? (
+                                    <a
+                                        key={social.label}
+                                        href={social.href}
+                                        aria-label={social.label}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-10 h-10 rounded-lg bg-secondary-800 hover:bg-primary-600 flex items-center justify-center transition-colors"
+                                    >
+                                        <social.icon className="w-5 h-5" />
+                                    </a>
+                                ) : null
                             ))}
                         </div>
                     </div>
@@ -51,7 +81,7 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Hızlı Linkler</h4>
                         <ul className="space-y-2">
-                            {quickLinks.map((link) => (
+                            {quickLinks.filter((item: any) => item.active).map((link: any) => (
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
@@ -68,16 +98,16 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Hizmetlerimiz</h4>
                         <ul className="space-y-2 text-sm text-secondary-300">
-                            <li>Proje & Danışmanlık</li>
-                            <li>Anahtar Teslim Tesisler</li>
-                            <li>Fabrika Revizyonları</li>
-                            <li>Sistem Geliştirmeleri</li>
-                            <li>Devreye Alma & Servis</li>
-                            <li>
-                                <Link href="/hizmet-talebi" className="text-primary-400 hover:text-primary-300">
-                                    Hizmet Talebi Oluştur
-                                </Link>
-                            </li>
+                            {services.filter((item: any) => item.active).map((link: any) => (
+                                <li key={link.name}>
+                                    <Link
+                                        href={link.href}
+                                        className="text-secondary-300 hover:text-primary-400 transition-colors text-sm"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -87,21 +117,21 @@ export default function Footer() {
                         <ul className="space-y-3">
                             <li className="flex items-start gap-3 text-sm text-secondary-300">
                                 <MapPin className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
-                                <span>Adres bilgisi buraya gelecek</span>
+                                <span>{address}</span>
                             </li>
                             <li className="flex items-center gap-3 text-sm text-secondary-300">
                                 <Phone className="w-5 h-5 text-primary-400 flex-shrink-0" />
-                                <a href="tel:+90" className="hover:text-primary-400 transition-colors">
-                                    +90 XXX XXX XX XX
+                                <a href={`tel:${phone}`} className="hover:text-primary-400 transition-colors">
+                                    {phone}
                                 </a>
                             </li>
                             <li className="flex items-center gap-3 text-sm text-secondary-300">
                                 <Mail className="w-5 h-5 text-primary-400 flex-shrink-0" />
                                 <a
-                                    href="mailto:info@gipkon.com.tr"
+                                    href={`mailto:${email}`}
                                     className="hover:text-primary-400 transition-colors"
                                 >
-                                    info@gipkon.com.tr
+                                    {email}
                                 </a>
                             </li>
                         </ul>

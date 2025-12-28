@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+// Updated to use CSS variables for dynamic theming
+
 const config: Config = {
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,28 +12,28 @@ const config: Config = {
         extend: {
             colors: {
                 primary: {
-                    50: '#e6f0ff',
-                    100: '#b3d1ff',
-                    200: '#80b3ff',
-                    300: '#4d94ff',
-                    400: '#1a75ff',
-                    500: '#0056e0',
-                    600: '#0044ad',
-                    700: '#00337a',
-                    800: '#002247',
-                    900: '#001114',
+                    50: 'var(--primary-50)',
+                    100: 'var(--primary-100)',
+                    200: 'var(--primary-200)',
+                    300: 'var(--primary-300)',
+                    400: 'var(--primary-400)',
+                    500: 'var(--primary-500)',
+                    600: 'var(--primary-600)',
+                    700: 'var(--primary-700)',
+                    800: 'var(--primary-800)',
+                    900: 'var(--primary-900)',
                 },
                 secondary: {
-                    50: '#f5f7fa',
-                    100: '#e4e9f2',
-                    200: '#c9d6e8',
-                    300: '#a0b5d3',
-                    400: '#7694bb',
-                    500: '#5576a3',
-                    600: '#445d85',
-                    700: '#344667',
-                    800: '#242f49',
-                    900: '#14182b',
+                    50: 'var(--secondary-50)',
+                    100: 'var(--secondary-100)',
+                    200: 'var(--secondary-200)',
+                    300: 'var(--secondary-300)',
+                    400: 'var(--secondary-400)',
+                    500: 'var(--secondary-500)',
+                    600: 'var(--secondary-600)',
+                    700: 'var(--secondary-700)',
+                    800: 'var(--secondary-800)',
+                    900: 'var(--secondary-900)',
                 },
             },
             fontFamily: {

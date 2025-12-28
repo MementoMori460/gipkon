@@ -1,0 +1,17 @@
+{
+  "contact": {
+    "address": "GIPKON Teknoloji Merkezi, İstanbul, Türkiye",
+    "phone": "+90 555 555 55 55",
+    "email": "info@gipkon.com.tr",
+    "mapUrl": ""
+  },
+  "social": {
+    "facebook": "https://facebook.com/gipkon",
+    "twitter": "https://twitter.com/gipkon",
+    "linkedin": "https://linkedin.com/company/gipkon",
+    "instagram": "https://instagram.com/gipkon"
+  },
+  "theme": {
+    "primaryColor": "#fafafa"
+  }
+}

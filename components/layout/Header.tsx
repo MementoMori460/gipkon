@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 
 const navigation = [
@@ -47,6 +47,29 @@ const navigation = [
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [settings, setSettings] = useState<any>(null);
+    const [menu, setMenu] = useState<any>(null);
+
+    useEffect(() => {
+        // Fetch Settings
+        fetch("/api/admin/settings")
+            .then(res => res.json())
+            .then(data => setSettings(data))
+            .catch(err => console.error(err));
+
+        // Fetch Menu
+        fetch("/api/admin/menu")
+            .then(res => res.json())
+            .then(data => setMenu(data))
+            .catch(err => console.error(err));
+    }, []);
+
+    // Defaults if loading or error
+    const phone = settings?.contact?.phone || "+90 XXX XXX XX XX";
+    const email = settings?.contact?.email || "info@gipkon.com.tr";
+
+    // Fallback static navigation if menu hasn't loaded yet
+    const navItems = menu?.header || [];
 
     return (
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
@@ -54,11 +77,11 @@ export default function Header() {
             <div className="bg-primary-700 text-white py-2">
                 <div className="container mx-auto px-4 flex justify-between items-center text-sm">
                     <div className="flex gap-4">
-                        <a href="tel:+90" className="hover:text-primary-200 transition-colors">
-                            📞 +90 XXX XXX XX XX
+                        <a href={`tel:${phone}`} className="hover:text-primary-200 transition-colors">
+                            📞 {phone}
                         </a>
-                        <a href="mailto:info@gipkon.com.tr" className="hover:text-primary-200 transition-colors">
-                            ✉️ info@gipkon.com.tr
+                        <a href={`mailto:${email}`} className="hover:text-primary-200 transition-colors">
+                            ✉️ {email}
                         </a>
                     </div>
                     <div className="flex gap-3">
@@ -82,7 +105,7 @@ export default function Header() {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-1">
-                        {navigation.map((item) => (
+                        {navItems.filter((item: any) => item.active).map((item: any) => (
                             <div
                                 key={item.name}
                                 className="relative"
@@ -97,7 +120,7 @@ export default function Header() {
                                         </button>
                                         {activeDropdown === item.name && (
                                             <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 animate-slide-down">
-                                                {item.items.map((subItem) => (
+                                                {item.items.filter((sub: any) => sub.active).map((subItem: any) => (
                                                     <Link
                                                         key={subItem.name}
                                                         href={subItem.href}
@@ -111,7 +134,7 @@ export default function Header() {
                                     </>
                                 ) : (
                                     <Link
-                                        href={item.href!}
+                                        href={item.href || "#"}
                                         className="px-4 py-2 text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors"
                                     >
                                         {item.name}
@@ -144,7 +167,7 @@ export default function Header() {
             {mobileMenuOpen && (
                 <div className="lg:hidden border-t border-gray-200 bg-white animate-slide-down">
                     <div className="container mx-auto px-4 py-4 space-y-2">
-                        {navigation.map((item) => (
+                        {navItems.filter((item: any) => item.active).map((item: any) => (
                             <div key={item.name}>
                                 {item.items ? (
                                     <>
@@ -162,7 +185,7 @@ export default function Header() {
                                         </button>
                                         {activeDropdown === item.name && (
                                             <div className="ml-4 mt-1 space-y-1">
-                                                {item.items.map((subItem) => (
+                                                {item.items.filter((sub: any) => sub.active).map((subItem: any) => (
                                                     <Link
                                                         key={subItem.name}
                                                         href={subItem.href}
@@ -177,7 +200,7 @@ export default function Header() {
                                     </>
                                 ) : (
                                     <Link
-                                        href={item.href!}
+                                        href={item.href || "#"}
                                         className="block px-4 py-2 text-sm font-medium text-secondary-700 hover:bg-primary-50 rounded-lg transition-colors"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >

@@ -4,36 +4,18 @@ import Button from "@/components/ui/Button";
 import sectors from "@/data/sectors.json";
 import services from "@/data/services.json";
 import { ArrowRight, CheckCircle, Users, Award, Zap } from "lucide-react";
+import fs from "fs";
+import path from "path";
 
-const heroSlides = [
-    {
-        id: "gida",
-        title: "GIDA SEKTÖRÜ OTOMASYON ÇÖZÜMLERİ",
-        subtitle: "Hijyenik ve Verimli Sistemler",
-        description: "Gıda sektörü için özel otomasyon çözümleri ile üretim süreçlerinizi optimize edin.",
-        image: "/images/hero/gida.jpg",
-        cta: { text: "Bize Ulaşın", href: "/iletisim" },
-        secondaryCta: { text: "Çözümlerimiz", href: "/cozumler/gida-sektoru" },
-    },
-    {
-        id: "tekstil",
-        title: "TEKSTİL SEKTÖRÜ OTOMASYON ÇÖZÜMLERİ",
-        subtitle: "Entegre Üretim Sistemleri",
-        description: "Tekstil üretim süreçleriniz için tam entegre otomasyon çözümleri.",
-        image: "/images/hero/tekstil.jpg",
-        cta: { text: "Bize Ulaşın", href: "/iletisim" },
-        secondaryCta: { text: "Projelerimiz", href: "/projeler" },
-    },
-    {
-        id: "saglik",
-        title: "SAĞLIK SEKTÖRÜ OTOMASYON ÇÖZÜMLERİ",
-        subtitle: "Hassas ve Güvenilir",
-        description: "Sağlık sektörü için yüksek hassasiyetli otomasyon sistemleri.",
-        image: "/images/hero/saglik.jpg",
-        cta: { text: "Bize Ulaşın", href: "/iletisim" },
-        secondaryCta: { text: "Hizmetlerimiz", href: "/hizmetler" },
-    },
-];
+async function getHeroSlides() {
+    try {
+        const filePath = path.join(process.cwd(), "data/hero.json");
+        const jsonData = fs.readFileSync(filePath, "utf8");
+        return JSON.parse(jsonData);
+    } catch (error) {
+        return [];
+    }
+}
 
 const stats = [
     { icon: Users, value: "500+", label: "Mutlu Müşteri" },
@@ -42,7 +24,9 @@ const stats = [
     { icon: Zap, value: "7/24", label: "Teknik Destek" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+    const heroSlides = await getHeroSlides();
+
     return (
         <>
             {/* Hero Section */}

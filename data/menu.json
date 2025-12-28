@@ -1,0 +1,163 @@
+{
+    "header": [
+        {
+            "id": "kurumsal",
+            "name": "KURUMSAL",
+            "active": true,
+            "items": [
+                {
+                    "name": "Hakkımızda",
+                    "href": "/kurumsal/hakkimizda",
+                    "active": true
+                },
+                {
+                    "name": "Tanıtım Videomuz",
+                    "href": "/kurumsal/tanitim-videomuz",
+                    "active": true
+                },
+                {
+                    "name": "Kataloglarımız",
+                    "href": "/kurumsal/kataloglarimiz",
+                    "active": true
+                },
+                {
+                    "name": "Referanslarımız",
+                    "href": "/kurumsal/referanslar",
+                    "active": true
+                },
+                {
+                    "name": "S.S.S.",
+                    "href": "/kurumsal/sss",
+                    "active": true
+                },
+                {
+                    "name": "İnsan Kaynakları",
+                    "href": "/kurumsal/insan-kaynaklari",
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "cozumler",
+            "name": "ÇÖZÜMLERİMİZ",
+            "href": "/cozumler",
+            "active": true
+        },
+        {
+            "id": "projeler",
+            "name": "PROJELERİMİZ",
+            "href": "/projeler",
+            "active": true
+        },
+        {
+            "id": "hizmetler",
+            "name": "HİZMETLERİMİZ",
+            "active": true,
+            "items": [
+                {
+                    "name": "Hizmetlere Genel Bakış",
+                    "href": "/hizmetler",
+                    "active": true
+                },
+                {
+                    "name": "Proje & Danışmanlık",
+                    "href": "/hizmetler/proje-danismanlik",
+                    "active": true
+                },
+                {
+                    "name": "Anahtar Teslim Tesisler",
+                    "href": "/hizmetler/anahtar-teslim-tesisler",
+                    "active": true
+                },
+                {
+                    "name": "Mekanik Bakım & Servis",
+                    "href": "/hizmetler/mekanik-bakim-ve-servis",
+                    "active": true
+                },
+                {
+                    "name": "Hizmet & Teklif Talebi",
+                    "href": "/hizmet-talebi",
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "servis",
+            "name": "SERVİS AĞIMIZ",
+            "href": "/servis",
+            "active": true
+        },
+        {
+            "id": "iletisim",
+            "name": "İLETİŞİM",
+            "href": "/iletisim",
+            "active": true
+        }
+    ],
+    "footer": {
+        "quickLinks": [
+            {
+                "name": "Anasayfa",
+                "href": "/",
+                "active": true
+            },
+            {
+                "name": "Hakkımızda",
+                "href": "/kurumsal/hakkimizda",
+                "active": true
+            },
+            {
+                "name": "Çözümlerimiz",
+                "href": "/cozumler",
+                "active": true
+            },
+            {
+                "name": "Projelerimiz",
+                "href": "/projeler",
+                "active": true
+            },
+            {
+                "name": "Hizmetlerimiz",
+                "href": "/hizmetler",
+                "active": true
+            },
+            {
+                "name": "Hizmet Talebi",
+                "href": "/hizmet-talebi",
+                "active": true
+            },
+            {
+                "name": "İletişim",
+                "href": "/iletisim",
+                "active": true
+            }
+        ],
+        "services": [
+            {
+                "name": "Proje & Danışmanlık",
+                "href": "/hizmetler/proje-danismanlik",
+                "active": true
+            },
+            {
+                "name": "Anahtar Teslim Tesisler",
+                "href": "/hizmetler/anahtar-teslim-tesisler",
+                "active": true
+            },
+            {
+                "name": "Fabrika Revizyonları",
+                "href": "#",
+                "active": true
+            },
+            {
+                "name": "Sistem Geliştirmeleri",
+                "href": "#",
+                "active": true
+            },
+            {
+                "name": "Devreye Alma & Servis",
+                "href": "/hizmetler/mekanik-bakim-ve-servis",
+                "active": true
+            }
+        ]
+    }
+}
