@@ -5,7 +5,7 @@ import sectors from "@/data/sectors.json";
 
 export const metadata: Metadata = {
     title: "Çözümlerimiz - GIPKON TEKNOLOJİ",
-    description: "9 farklı sektörde uzmanlaşmış endüstriyel otomasyon çözümleri",
+    description: `${sectors.filter((s: any) => s.isActive !== false).length} farklı sektörde uzmanlaşmış endüstriyel otomasyon çözümleri`,
 };
 
 export default function CozumlerPage() {
@@ -19,7 +19,7 @@ export default function CozumlerPage() {
                             Sektörel Çözümlerimiz
                         </h1>
                         <p className="text-xl text-primary-100">
-                            9 farklı sektörde uzmanlaşmış otomasyon çözümleri sunuyoruz
+                            {sectors.filter((s: any) => s.isActive !== false).length} farklı sektörde uzmanlaşmış otomasyon çözümleri sunuyoruz
                         </p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ export default function CozumlerPage() {
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {sectors.map((sector) => (
+                        {sectors.filter((s: any) => s.isActive !== false).map((sector) => (
                             <Card
                                 key={sector.id}
                                 title={sector.title}

@@ -1,22 +1,63 @@
 {
-  "contact": {
-    "address": "GIPKON Teknoloji Merkezi, İstanbul, Türkiye",
-    "phone": "+90 555 555 55 55",
-    "email": "info@gipkon.com.tr",
-    "mapUrl": ""
+  "siteName": "GIPKON TEKNOLOJİ",
+  "siteDescription": "Endüstriyel otomasyon çözümlerinde güvenilir iş ortağınız.",
+  "branding": {
+    "logo": "/uploads/gipkon_otomasyon_logo-2018.png",
+    "favicon": ""
   },
-  "social": {
-    "facebook": "https://facebook.com/gipkon",
-    "twitter": "https://twitter.com/gipkon",
-    "linkedin": "https://linkedin.com/company/gipkon",
-    "instagram": "https://instagram.com/gipkon"
+  "contact": {
+    "address": "İvedik O.S.B. 1468. Cadde AK İş Merkezi No: 163 / 54 - ANKARA / TÜRKİYE",
+    "phone": "+90 312 395 82 02",
+    "email": "info@gipkon.com.tr",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.2483664796333!2d32.7447322!3d39.9977721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34a2161ab9dbb%3A0xa67830f2637292a5!2sSerhat%2C+1468.+Cd.+No%3A163%2C+06378+Yenimahalle%2FAnkara!5e0!3m2!1str!2str!4v1529037122084"
+  },
+  "socialMedia": {
+    "facebook": "",
+    "twitter": "",
+    "linkedin": "https://www.linkedin.com/company/gipkon/",
+    "instagram": ""
   },
   "theme": {
-    "primaryColor": "#0056e0",
-    "secondaryColor": "#445d85",
-    "backgroundColor": "#f9fafb",
-    "textColor": "#111827",
-    "tagBackgroundColor": "#000000",
-    "tagTextColor": "#ffffff"
+    "primaryColor": "#475569",
+    "secondaryColor": "#94a3b8",
+    "backgroundColor": "#ffffff",
+    "textColor": "#334155",
+    "header": {
+      "background": "#ffffff",
+      "textColor": "#334155"
+    },
+    "footer": {
+      "background": "#f8fafc",
+      "textColor": "#64748b"
+    },
+    "hero": {
+      "textColor": "#ffffff",
+      "overlayColor": "#1e293b",
+      "overlayOpacity": "0.4"
+    },
+    "card": {
+      "background": "#ffffff",
+      "textColor": "#334155",
+      "borderColor": "#e2e8f0"
+    },
+    "components": {
+      "buttonPrimaryBg": "#475569",
+      "buttonPrimaryText": "#ffffff",
+      "buttonSecondaryBg": "#f1f5f9",
+      "buttonSecondaryText": "#475569",
+      "inputBg": "#ffffff",
+      "inputText": "#334155",
+      "inputBorder": "#cbd5e1"
+    }
+  },
+  "footer": {
+    "section1": {
+      "title": "Hakkımızda",
+      "content": "GIPKON Teknoloji, endüstriyel otomasyon alanında yenilikçi çözümler sunar."
+    }
+  },
+  "system": {
+    "version": "1.0.0",
+    "lastBackup": null
   }
 }

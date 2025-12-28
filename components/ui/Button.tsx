@@ -15,14 +15,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2",
                     "disabled:pointer-events-none disabled:opacity-50",
                     {
-                        "bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm":
-                            variant === "primary",
-                        "bg-secondary-600 text-white hover:bg-secondary-700 active:bg-secondary-800 shadow-sm":
-                            variant === "secondary",
-                        "border-2 border-primary-600 text-primary-600 hover:bg-primary-50 active:bg-primary-100":
-                            variant === "outline",
-                        "text-secondary-700 hover:bg-secondary-100 active:bg-secondary-200":
-                            variant === "ghost",
+                        "shadow-sm": variant === "primary" || variant === "secondary",
+                        "hover:opacity-90 active:opacity-100": true, // Generic hover effect
                     },
                     {
                         "px-3 py-1.5 text-sm": size === "sm",
@@ -31,6 +25,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                     },
                     className
                 )}
+                style={{
+                    backgroundColor: variant === 'primary' ? 'var(--btn-primary-bg)' : variant === 'secondary' ? 'var(--btn-secondary-bg)' : undefined,
+                    color: variant === 'primary' ? 'var(--btn-primary-text)' : variant === 'secondary' ? 'var(--btn-secondary-text)' : undefined,
+                    borderColor: variant === 'outline' ? 'var(--primary-600)' : undefined, // Keep outline standard for now or add var
+                }}
                 ref={ref}
                 {...props}
             />

@@ -1,204 +1,37 @@
-# Gipkon Website - Implementation Plan
+# Implementation Plan - Public Pages Refinement
 
-Modern, minimal kurumsal website için Next.js migration planı.
+# [Goal Description]
+Finalize Key Public Pages and Navigation. Most core pages (Home, Projects, Services) are already implemented. The focus is now on:
+1.  **Catalogs Page:** Create a page to list/download company catalogs.
+2.  **References Page:** Consolidate `/kurumsal/referanslar` to redirect to the main `/referanslar` page or vice versa.
+3.  **Header:** Ensure navigation includes all new pages and is responsive.
+4.  **Footer:** Verify links and contact info are dynamic.
 
 ## User Review Required
-
-> [!IMPORTANT]
-> **Tasarım Yaklaşımı:** Modern, minimal ve kurumsal bir tasarım hedefliyoruz. Renk paleti ve genel stil için onayınıza ihtiyacım var:
-> - **Renk Şeması:** Koyu lacivert/mavi tonları + beyaz/gri (kurumsal) veya farklı bir palet?
-> - **Tipografi:** Modern sans-serif (Inter, Outfit) kullanılacak
-> - **Animasyonlar:** Smooth, subtle animasyonlar eklenecek
-> - **Dark Mode:** Eklensin mi?
-
 > [!NOTE]
-> **Admin Panel:** İlk versiyonda basit JSON dosya tabanlı yönetim, sonraki aşamada tam CMS entegrasyonu planlanıyor.
-
----
+> I am assuming `/kurumsal/referanslar` should just redirect to `/referanslar` (or be the main one) to avoid duplicate content.
 
 ## Proposed Changes
 
-### Phase 1: Project Setup & Foundation
+### Pages
+#### [NEW] [kataloglarimiz/page.tsx](file:///Users/ydmacm1/gipkon/app/kurumsal/kataloglarimiz/page.tsx)
+- Create a grid layout for catalogs.
+- Use placeholder PDF links or dummy data if no actual PDFs are available.
 
-#### [NEW] [package.json](file:///Users/ydmacm1/gipkon/package.json)
-Next.js 14, TypeScript, Tailwind CSS ve gerekli dependencies ile proje kurulumu.
+#### [MODIFY] [referanslar/page.tsx](file:///Users/ydmacm1/gipkon/app/kurumsal/referanslar/page.tsx)
+- Change to a server-side redirect to `/referanslar` OR Ensure content is consistent.
 
-#### [NEW] [tsconfig.json](file:///Users/ydmacm1/gipkon/tsconfig.json)
-TypeScript konfigürasyonu - strict mode ve path aliases.
+### Layout
+#### [MODIFY] [Header.tsx](file:///Users/ydmacm1/gipkon/components/layout/Header.tsx)
+- Update menu items to match the current page structure.
+- Ensure "Kurumsal" dropdown works correctly.
 
-#### [NEW] [tailwind.config.ts](file:///Users/ydmacm1/gipkon/tailwind.config.ts)
-Tailwind CSS konfigürasyonu - custom colors, fonts, animations.
-
-#### [NEW] [next.config.js](file:///Users/ydmacm1/gipkon/next.config.js)
-Next.js konfigürasyonu - image optimization, i18n setup.
-
----
-
-### Phase 2: Core Components & Layout
-
-#### [NEW] [src/components/layout/Header.tsx](file:///Users/ydmacm1/gipkon/src/components/layout/Header.tsx)
-Modern header component:
-- Sticky navigation
-- Mobile hamburger menu
-- Language switcher (TR/EN/DE)
-- Search functionality
-- Smooth scroll animations
-
-#### [NEW] [src/components/layout/Footer.tsx](file:///Users/ydmacm1/gipkon/src/components/layout/Footer.tsx)
-Footer component:
-- Quick links
-- Social media icons
-- Contact info
-- Newsletter signup
-
-#### [NEW] [src/components/ui/Button.tsx](file:///Users/ydmacm1/gipkon/src/components/ui/Button.tsx)
-Reusable button component - multiple variants (primary, secondary, outline).
-
-#### [NEW] [src/components/ui/Card.tsx](file:///Users/ydmacm1/gipkon/src/components/ui/Card.tsx)
-Card component for services, projects, solutions.
-
-#### [NEW] [src/components/ui/Hero.tsx](file:///Users/ydmacm1/gipkon/src/components/ui/Hero.tsx)
-Hero slider component - modern, animated, responsive.
-
----
-
-### Phase 3: Homepage & Core Pages
-
-#### [NEW] [src/app/page.tsx](file:///Users/ydmacm1/gipkon/src/app/page.tsx)
-Homepage:
-- Hero slider (9 sectors)
-- About section preview
-- Solutions grid
-- Projects showcase
-- Services overview
-- CTA sections
-
-#### [NEW] [src/app/kurumsal/hakkimizda/page.tsx](file:///Users/ydmacm1/gipkon/src/app/kurumsal/hakkimizda/page.tsx)
-About page - company info, mission, vision.
-
-#### [NEW] [src/app/iletisim/page.tsx](file:///Users/ydmacm1/gipkon/src/app/iletisim/page.tsx)
-Contact page:
-- Contact form with validation
-- Google Maps integration
-- Contact information
-- Office locations
-
-#### [NEW] [src/app/kurumsal/referanslar/page.tsx](file:///Users/ydmacm1/gipkon/src/app/kurumsal/referanslar/page.tsx)
-References page - client logos and testimonials.
-
----
-
-### Phase 4: Dynamic Content Pages
-
-#### [NEW] [src/app/cozumler/[sector]/page.tsx](file:///Users/ydmacm1/gipkon/src/app/cozumler/[sector]/page.tsx)
-Dynamic sector solutions pages (9 sectors):
-- Gıda, Tekstil, Sağlık, Kimya, İlaç, Kozmetik, Enerji, Maden, Savunma
-
-#### [NEW] [src/app/projeler/[sector]/page.tsx](file:///Users/ydmacm1/gipkon/src/app/projeler/[sector]/page.tsx)
-Dynamic project gallery pages (9 categories).
-
-#### [NEW] [src/app/hizmetler/[service]/page.tsx](file:///Users/ydmacm1/gipkon/src/app/hizmetler/[service]/page.tsx)
-Dynamic service pages (9 services).
-
----
-
-### Phase 5: Data Structure
-
-#### [NEW] [src/data/sectors.json](file:///Users/ydmacm1/gipkon/src/data/sectors.json)
-Sector data - titles, descriptions, images, slugs.
-
-#### [NEW] [src/data/services.json](file:///Users/ydmacm1/gipkon/src/data/services.json)
-Services data - all 9 services with details.
-
-#### [NEW] [src/data/projects.json](file:///Users/ydmacm1/gipkon/src/data/projects.json)
-Projects data - categorized by sector.
-
-#### [NEW] [src/data/references.json](file:///Users/ydmacm1/gipkon/src/data/references.json)
-Client references - logos, names, testimonials (admin panel ile düzenlenebilir).
-
----
-
-### Phase 6: Forms & Interactivity
-
-#### [NEW] [src/components/forms/ContactForm.tsx](file:///Users/ydmacm1/gipkon/src/components/forms/ContactForm.tsx)
-Contact form with React Hook Form and validation.
-
-#### [NEW] [src/components/forms/ServiceRequestForm.tsx](file:///Users/ydmacm1/gipkon/src/components/forms/ServiceRequestForm.tsx)
-Service request forms (4 types: Devreye Alma, Servis, Yedek Parça, Teklif).
-
-#### [NEW] [src/app/api/contact/route.ts](file:///Users/ydmacm1/gipkon/src/app/api/contact/route.ts)
-API route for form submissions - email sending.
-
----
-
-### Phase 7: Simple Admin Panel (Future)
-
-#### [NEW] [src/app/admin/page.tsx](file:///Users/ydmacm1/gipkon/src/app/admin/page.tsx)
-Simple admin dashboard - authentication required.
-
-#### [NEW] [src/app/admin/references/page.tsx](file:///Users/ydmacm1/gipkon/src/app/admin/references/page.tsx)
-References management - add/edit/delete client logos.
-
-#### [NEW] [src/app/admin/projects/page.tsx](file:///Users/ydmacm1/gipkon/src/app/admin/projects/page.tsx)
-Projects management - add new projects with images.
-
----
+#### [MODIFY] [Footer.tsx](file:///Users/ydmacm1/gipkon/components/layout/Footer.tsx)
+- Ensure copyright year is dynamic.
+- Check social media links integration.
 
 ## Verification Plan
-
-### Automated Tests
-```bash
-# Build test
-npm run build
-
-# Type checking
-npm run type-check
-
-# Lint
-npm run lint
-```
-
 ### Manual Verification
-1. **Responsive Design:** Test on mobile, tablet, desktop
-2. **Cross-browser:** Chrome, Firefox, Safari, Edge
-3. **Performance:** Lighthouse score > 90
-4. **SEO:** Meta tags, sitemap, robots.txt
-5. **Forms:** Test all form submissions
-6. **Navigation:** Test all internal links
-7. **Images:** Verify all images load correctly
-
-### Browser Testing
-- Test homepage hero slider
-- Test navigation menu (desktop & mobile)
-- Test contact form submission
-- Test dynamic routing (sectors, services, projects)
-- Verify Google Maps integration
-
----
-
-## Technology Stack Summary
-
-```
-Framework:     Next.js 14 (App Router)
-Language:      TypeScript
-Styling:       Tailwind CSS
-Forms:         React Hook Form + Zod
-Icons:         Lucide React
-Animations:    Framer Motion
-Maps:          Google Maps API
-Email:         Resend / EmailJS
-Deployment:    Vercel
-CMS (future):  Sanity.io / Strapi
-```
-
----
-
-## Timeline Estimate
-
-- **Phase 1-2:** Project setup & components (1 session)
-- **Phase 3:** Core pages (1 session)
-- **Phase 4-5:** Dynamic content & data (1 session)
-- **Phase 6:** Forms (1 session)
-- **Phase 7:** Admin panel (future, 1-2 sessions)
-
-**Total:** 4-5 development sessions + testing & deployment
+- Navigate to `/kurumsal/kataloglarimiz` and check rendering.
+- Navigate to `/kurumsal/referanslar` and verify redirect.
+- Check Header mobile menu.

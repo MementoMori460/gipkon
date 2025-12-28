@@ -100,17 +100,42 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
             }
 
             // Advanced theme settings
-            if (settings.theme?.backgroundColor) {
-                document.documentElement.style.setProperty('--page-bg', settings.theme.backgroundColor);
-            }
-            if (settings.theme?.textColor) {
-                document.documentElement.style.setProperty('--page-text', settings.theme.textColor);
-            }
-            if (settings.theme?.tagBackgroundColor) {
-                document.documentElement.style.setProperty('--tag-bg', settings.theme.tagBackgroundColor);
-            }
-            if (settings.theme?.tagTextColor) {
-                document.documentElement.style.setProperty('--tag-text', settings.theme.tagTextColor);
+            if (settings.theme) {
+                const t = settings.theme;
+                const root = document.documentElement;
+
+                // Global
+                if (t.backgroundColor) root.style.setProperty('--page-bg', t.backgroundColor);
+                if (t.textColor) root.style.setProperty('--page-text', t.textColor);
+
+                // Header
+                if (t.header?.background) root.style.setProperty('--header-bg', t.header.background);
+                if (t.header?.textColor) root.style.setProperty('--header-text', t.header.textColor);
+
+                // Footer
+                if (t.footer?.background) root.style.setProperty('--footer-bg', t.footer.background);
+                if (t.footer?.textColor) root.style.setProperty('--footer-text', t.footer.textColor);
+
+                // Hero
+                if (t.hero?.textColor) root.style.setProperty('--hero-text', t.hero.textColor);
+                if (t.hero?.overlayColor) root.style.setProperty('--hero-overlay', t.hero.overlayColor);
+                if (t.hero?.overlayOpacity) root.style.setProperty('--hero-overlay-opacity', t.hero.overlayOpacity);
+
+                // Card
+                if (t.card?.background) root.style.setProperty('--card-bg', t.card.background);
+                if (t.card?.textColor) root.style.setProperty('--card-text', t.card.textColor);
+                if (t.card?.borderColor) root.style.setProperty('--card-border', t.card.borderColor);
+
+                // Components
+                if (t.components) {
+                    if (t.components.buttonPrimaryBg) root.style.setProperty('--btn-primary-bg', t.components.buttonPrimaryBg);
+                    if (t.components.buttonPrimaryText) root.style.setProperty('--btn-primary-text', t.components.buttonPrimaryText);
+                    if (t.components.buttonSecondaryBg) root.style.setProperty('--btn-secondary-bg', t.components.buttonSecondaryBg);
+                    if (t.components.buttonSecondaryText) root.style.setProperty('--btn-secondary-text', t.components.buttonSecondaryText);
+                    if (t.components.inputBg) root.style.setProperty('--input-bg', t.components.inputBg);
+                    if (t.components.inputText) root.style.setProperty('--input-text', t.components.inputText);
+                    if (t.components.inputBorder) root.style.setProperty('--input-border', t.components.inputBorder);
+                }
             }
         } catch (error) {
             console.error("Failed to load theme", error);

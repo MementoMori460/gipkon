@@ -11,6 +11,7 @@ async function getReferences() {
 }
 
 export default async function ReferencesPage() {
+    // Force rebuild
     const references = await getReferences();
 
     return (

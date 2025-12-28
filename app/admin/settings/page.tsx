@@ -17,19 +17,15 @@ export default function SettingsPage() {
             email: "",
             mapUrl: ""
         },
-        social: {
+        branding: {
+            logo: "",
+            favicon: ""
+        },
+        socialMedia: {
             facebook: "",
             twitter: "",
             linkedin: "",
             instagram: ""
-        },
-        theme: {
-            primaryColor: "#0056e0",
-            secondaryColor: "#445d85",
-            backgroundColor: "#f9fafb",
-            textColor: "#111827",
-            tagBackgroundColor: "#e0f2fe",
-            tagTextColor: "#0369a1"
         }
     });
 
@@ -37,7 +33,25 @@ export default function SettingsPage() {
         fetch("/api/admin/settings")
             .then((res) => res.json())
             .then((data) => {
-                setSettings(data);
+                // Ensure checking for nulls to avoid uncontrolled input errors
+                setSettings({
+                    contact: {
+                        address: data.contact?.address || "",
+                        phone: data.contact?.phone || "",
+                        email: data.contact?.email || "",
+                        mapUrl: data.contact?.mapUrl || ""
+                    },
+                    branding: {
+                        logo: data.branding?.logo || "",
+                        favicon: data.branding?.favicon || ""
+                    },
+                    socialMedia: {
+                        facebook: data.socialMedia?.facebook || "",
+                        twitter: data.socialMedia?.twitter || "",
+                        linkedin: data.socialMedia?.linkedin || "",
+                        instagram: data.socialMedia?.instagram || ""
+                    }
+                });
                 setIsLoading(false);
             })
             .catch((err) => {
@@ -56,29 +70,37 @@ export default function SettingsPage() {
         }));
     };
 
-    const handleThemeChange = (field: string, value: string) => {
-        setSettings((prev: any) => ({
-            ...prev,
-            theme: {
-                ...prev.theme,
-                [field]: value
-            }
-        }));
-    };
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSaving(true);
 
         try {
+            // We need to fetch existing settings first to merge, so we don't overwrite theme settings
+            // But since this page doesn't touch theme settings anymore, simpler is to just send what we have
+            // However, the backend likely overwrites the whole file. 
+            // So we should ideally have fetched the whole object in the beginning.
+            // Let's rely on the API implementation. If existing API overwrites, we need to be careful.
+            // Assuming we need to merge with current theme settings which we might not have in state.
+
+            // Re-fetch latest to get current theme
+            const currentRes = await fetch("/api/admin/settings");
+            const currentData = await currentRes.json();
+
+            const mergedSettings = {
+                ...currentData,
+                contact: settings.contact,
+                branding: settings.branding,
+                socialMedia: settings.socialMedia
+            };
+
             const res = await fetch("/api/admin/settings", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(settings)
+                body: JSON.stringify(mergedSettings)
             });
 
             if (res.ok) {
-                await refreshTheme(); // Apply theme changes immediately
+                await refreshTheme();
                 alert("Ayarlar başarıyla kaydedildi.");
                 router.refresh();
             } else {
@@ -153,190 +175,74 @@ export default function SettingsPage() {
                     </div>
                 </div>
 
-                {/* Theme & Social */}
-                <div className="space-y-8">
-                    {/* Theme Settings */}
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Tema Ayarları</h2>
-                        <div className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Ana Tema Rengi
-                                </label>
-                                <div className="flex items-center gap-3">
-                                    <input
-                                        type="color"
-                                        value={settings.theme?.primaryColor || "#0056e0"}
-                                        onChange={(e) => handleThemeChange("primaryColor", e.target.value)}
-                                        className="h-10 w-20 rounded border border-gray-300 cursor-pointer"
-                                    />
-                                    <div className="flex-1">
-                                        <input
-                                            type="text"
-                                            value={settings.theme?.primaryColor || "#0056e0"}
-                                            onChange={(e) => handleThemeChange("primaryColor", e.target.value)}
-                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm p-2 border"
-                                        />
-                                        <p className="mt-1 text-xs text-gray-500">
-                                            Sitenin ana rengi (Butonlar, linkler, vurgular).
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Metin / İkincil Renk
-                                </label>
-                                <div className="flex items-center gap-3">
-                                    <input
-                                        type="color"
-                                        value={settings.theme?.secondaryColor || "#5576a3"}
-                                        onChange={(e) => handleThemeChange("secondaryColor", e.target.value)}
-                                        className="h-10 w-20 rounded border border-gray-300 cursor-pointer"
-                                    />
-                                    <div className="flex-1">
-                                        <input
-                                            type="text"
-                                            value={settings.theme?.secondaryColor || "#5576a3"}
-                                            onChange={(e) => handleThemeChange("secondaryColor", e.target.value)}
-                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm p-2 border"
-                                        />
-                                        <p className="mt-1 text-xs text-gray-500">
-                                            Metinler ve ikincil elemanlar için temel renk. (Genellikle Koyu Gri veya Lacivert tonları).
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                {/* Branding */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Marka & Görseller</h2>
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Logo URL</label>
+                            <input
+                                type="text"
+                                value={settings.branding?.logo || ""}
+                                onChange={(e) => handleChange("branding", "logo", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none text-sm"
+                                placeholder="https://example.com/logo.png"
+                            />
+                            <p className="text-xs text-gray-500 mt-1">Header ve Admin panelde görünecek logo adresi.</p>
                         </div>
-
-                        <div className="pt-4 border-t border-gray-100">
-                            <h3 className="text-sm font-medium text-gray-900 mb-4">Gelişmiş Renk Ayarları</h3>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-xs font-medium text-gray-600 mb-1">
-                                        Sayfa Arkaplanı
-                                    </label>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="color"
-                                            value={settings.theme?.backgroundColor || "#f9fafb"}
-                                            onChange={(e) => handleThemeChange("backgroundColor", e.target.value)}
-                                            className="h-8 w-12 rounded border cursor-pointer"
-                                        />
-                                        <input
-                                            type="text"
-                                            value={settings.theme?.backgroundColor || "#f9fafb"}
-                                            onChange={(e) => handleThemeChange("backgroundColor", e.target.value)}
-                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-xs font-medium text-gray-600 mb-1">
-                                        Genel Metin Rengi
-                                    </label>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="color"
-                                            value={settings.theme?.textColor || "#111827"}
-                                            onChange={(e) => handleThemeChange("textColor", e.target.value)}
-                                            className="h-8 w-12 rounded border cursor-pointer"
-                                        />
-                                        <input
-                                            type="text"
-                                            value={settings.theme?.textColor || "#111827"}
-                                            onChange={(e) => handleThemeChange("textColor", e.target.value)}
-                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-xs font-medium text-gray-600 mb-1">
-                                        Etiket Arkaplanı
-                                    </label>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="color"
-                                            value={settings.theme?.tagBackgroundColor || "#e0f2fe"}
-                                            onChange={(e) => handleThemeChange("tagBackgroundColor", e.target.value)}
-                                            className="h-8 w-12 rounded border cursor-pointer"
-                                        />
-                                        <input
-                                            type="text"
-                                            value={settings.theme?.tagBackgroundColor || "#e0f2fe"}
-                                            onChange={(e) => handleThemeChange("tagBackgroundColor", e.target.value)}
-                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-xs font-medium text-gray-600 mb-1">
-                                        Etiket Metin Rengi
-                                    </label>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="color"
-                                            value={settings.theme?.tagTextColor || "#0369a1"}
-                                            onChange={(e) => handleThemeChange("tagTextColor", e.target.value)}
-                                            className="h-8 w-12 rounded border cursor-pointer"
-                                        />
-                                        <input
-                                            type="text"
-                                            value={settings.theme?.tagTextColor || "#0369a1"}
-                                            onChange={(e) => handleThemeChange("tagTextColor", e.target.value)}
-                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Favicon URL</label>
+                            <input
+                                type="text"
+                                value={settings.branding?.favicon || ""}
+                                onChange={(e) => handleChange("branding", "favicon", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none text-sm"
+                                placeholder="https://example.com/favicon.ico"
+                            />
+                            <p className="text-xs text-gray-500 mt-1">Tarayıcı sekmesinde görünecek ikon adresi.</p>
                         </div>
                     </div>
+                </div>
 
-                    {/* Social Media */}
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Sosyal Medya</h2>
-                        <div className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Facebook</label>
-                                <input
-                                    type="url"
-                                    value={settings.social.facebook}
-                                    onChange={(e) => handleChange("social", "facebook", e.target.value)}
-                                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Twitter / X</label>
-                                <input
-                                    type="url"
-                                    value={settings.social.twitter}
-                                    onChange={(e) => handleChange("social", "twitter", e.target.value)}
-                                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn</label>
-                                <input
-                                    type="url"
-                                    value={settings.social.linkedin}
-                                    onChange={(e) => handleChange("social", "linkedin", e.target.value)}
-                                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Instagram</label>
-                                <input
-                                    type="url"
-                                    value={settings.social.instagram}
-                                    onChange={(e) => handleChange("social", "instagram", e.target.value)}
-                                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
-                                />
-                            </div>
+                {/* Social Media */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Sosyal Medya</h2>
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Facebook</label>
+                            <input
+                                type="url"
+                                value={settings.socialMedia.facebook}
+                                onChange={(e) => handleChange("socialMedia", "facebook", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Twitter / X</label>
+                            <input
+                                type="url"
+                                value={settings.socialMedia.twitter}
+                                onChange={(e) => handleChange("socialMedia", "twitter", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn</label>
+                            <input
+                                type="url"
+                                value={settings.socialMedia.linkedin}
+                                onChange={(e) => handleChange("socialMedia", "linkedin", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Instagram</label>
+                            <input
+                                type="url"
+                                value={settings.socialMedia.instagram}
+                                onChange={(e) => handleChange("socialMedia", "instagram", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                            />
                         </div>
                     </div>
                 </div>

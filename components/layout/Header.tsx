@@ -72,9 +72,9 @@ export default function Header() {
     const navItems = menu?.header || [];
 
     return (
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <header className="sticky top-0 z-50 backdrop-blur-sm border-b border-gray-200" style={{ backgroundColor: 'var(--header-bg)', color: 'var(--header-text)' }}>
             {/* Top Bar */}
-            <div className="bg-primary-700 text-white py-2">
+            <div className="py-2" style={{ backgroundColor: 'var(--primary-700)', color: 'var(--primary-foreground)' }}>
                 <div className="container mx-auto px-4 flex justify-between items-center text-sm">
                     <div className="flex gap-4">
                         <a href={`tel:${phone}`} className="hover:text-primary-200 transition-colors">
@@ -97,10 +97,20 @@ export default function Header() {
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
-                        <span className="text-2xl font-display font-bold text-primary-700">
-                            GIPKON
-                        </span>
-                        <span className="ml-2 text-sm text-secondary-600">TEKNOLOJİ</span>
+                        {settings?.branding?.logo ? (
+                            <img
+                                src={settings.branding.logo}
+                                alt={settings?.siteName || "GIPKON"}
+                                className="h-12 w-auto object-contain"
+                            />
+                        ) : (
+                            <>
+                                <span className="text-2xl font-display font-bold text-primary-700">
+                                    GIPKON
+                                </span>
+                                <span className="ml-2 text-sm text-secondary-600">TEKNOLOJİ</span>
+                            </>
+                        )}
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -135,7 +145,8 @@ export default function Header() {
                                 ) : (
                                     <Link
                                         href={item.href || "#"}
-                                        className="px-4 py-2 text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors"
+                                        className="px-4 py-2 text-sm font-medium hover:opacity-80 transition-colors"
+                                        style={{ color: 'var(--header-text)' }}
                                     >
                                         {item.name}
                                     </Link>

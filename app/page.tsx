@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Hero from "@/components/ui/Hero";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -59,9 +60,11 @@ export default async function HomePage() {
                             ve bu doğrultuda hizmet veren otomasyon çözüm firmasıdır. Müşteri memnuniyetini ilke
                             edinerek yolumuza devam etmekteyiz.
                         </p>
-                        <Button size="lg" variant="primary">
-                            Hakkımızda <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
+                        <Link href="/kurumsal/hakkimizda">
+                            <Button size="lg" variant="primary">
+                                Hakkımızda <ArrowRight className="w-5 h-5 ml-2" />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -74,11 +77,11 @@ export default async function HomePage() {
                             Sektörel Çözümlerimiz
                         </h2>
                         <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
-                            9 farklı sektörde uzmanlaşmış otomasyon çözümleri sunuyoruz
+                            {sectors.filter((s: any) => s.isActive !== false).length} farklı sektörde uzmanlaşmış otomasyon çözümleri sunuyoruz
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {sectors.map((sector) => (
+                        {sectors.filter((s: any) => s.isActive !== false).map((sector) => (
                             <Card
                                 key={sector.id}
                                 title={sector.title}
@@ -89,9 +92,11 @@ export default async function HomePage() {
                         ))}
                     </div>
                     <div className="text-center mt-12">
-                        <Button size="lg" variant="outline">
-                            Tüm Çözümler <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
+                        <Link href="/cozumler">
+                            <Button size="lg" variant="outline">
+                                Tüm Çözümler <ArrowRight className="w-5 h-5 ml-2" />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -118,9 +123,11 @@ export default async function HomePage() {
                         ))}
                     </div>
                     <div className="text-center mt-12">
-                        <Button size="lg" variant="outline">
-                            Tüm Hizmetler <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
+                        <Link href="/hizmetler">
+                            <Button size="lg" variant="outline">
+                                Tüm Hizmetler <ArrowRight className="w-5 h-5 ml-2" />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -135,12 +142,16 @@ export default async function HomePage() {
                         Uzman ekibimiz size en uygun otomasyon çözümünü sunmak için hazır
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <Button size="lg" className="bg-white text-primary-700 hover:bg-gray-100">
-                            İletişime Geç
-                        </Button>
-                        <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                            Teklif Al
-                        </Button>
+                        <Link href="/iletisim">
+                            <Button size="lg" className="bg-white text-primary-700 hover:bg-gray-100">
+                                İletişime Geç
+                            </Button>
+                        </Link>
+                        <Link href="/hizmet-talebi">
+                            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                                Teklif Al
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>

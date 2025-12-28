@@ -29,7 +29,7 @@ export default async function Footer() {
 
     // Default values if settings missing
     const contact = settings?.contact || {};
-    const social = settings?.social || {};
+    const social = settings?.socialMedia || {};
 
     const address = contact.address || "Adres bilgisi buraya gelecek";
     const phone = contact.phone || "+90 XXX XXX XX XX";
@@ -46,7 +46,7 @@ export default async function Footer() {
     const services = menu?.footer?.services || [];
 
     return (
-        <footer className="bg-secondary-900 text-white">
+        <footer style={{ backgroundColor: 'var(--footer-bg)', color: 'var(--footer-text)' }}>
             {/* Main Footer */}
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -55,7 +55,7 @@ export default async function Footer() {
                         <h3 className="text-2xl font-display font-bold mb-4">
                             GIPKON <span className="text-primary-400">TEKNOLOJİ</span>
                         </h3>
-                        <p className="text-secondary-300 text-sm mb-4">
+                        <p className="text-sm mb-4" style={{ color: 'var(--footer-text)', opacity: 0.8 }}>
                             Teknolojiye ve Geleceğe Yön Veren Firma. Endüstriyel otomasyon çözümlerinde
                             güvenilir iş ortağınız.
                         </p>
@@ -85,7 +85,8 @@ export default async function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
-                                        className="text-secondary-300 hover:text-primary-400 transition-colors text-sm"
+                                        className="hover:opacity-100 transition-colors text-sm"
+                                        style={{ color: 'var(--footer-text)', opacity: 0.7 }}
                                     >
                                         {link.name}
                                     </Link>
@@ -97,12 +98,13 @@ export default async function Footer() {
                     {/* Services */}
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Hizmetlerimiz</h4>
-                        <ul className="space-y-2 text-sm text-secondary-300">
+                        <ul className="space-y-2 text-sm">
                             {services.filter((item: any) => item.active).map((link: any) => (
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
-                                        className="text-secondary-300 hover:text-primary-400 transition-colors text-sm"
+                                        className="hover:opacity-100 transition-colors text-sm"
+                                        style={{ color: 'var(--footer-text)', opacity: 0.7 }}
                                     >
                                         {link.name}
                                     </Link>
@@ -115,21 +117,21 @@ export default async function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-4">İletişim</h4>
                         <ul className="space-y-3">
-                            <li className="flex items-start gap-3 text-sm text-secondary-300">
-                                <MapPin className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
+                            <li className="flex items-start gap-3 text-sm" style={{ color: 'var(--footer-text)', opacity: 0.8 }}>
+                                <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--primary-400)' }} />
                                 <span>{address}</span>
                             </li>
-                            <li className="flex items-center gap-3 text-sm text-secondary-300">
-                                <Phone className="w-5 h-5 text-primary-400 flex-shrink-0" />
-                                <a href={`tel:${phone}`} className="hover:text-primary-400 transition-colors">
+                            <li className="flex items-center gap-3 text-sm" style={{ color: 'var(--footer-text)', opacity: 0.8 }}>
+                                <Phone className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--primary-400)' }} />
+                                <a href={`tel:${phone}`} className="hover:opacity-100 transition-colors">
                                     {phone}
                                 </a>
                             </li>
-                            <li className="flex items-center gap-3 text-sm text-secondary-300">
-                                <Mail className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                            <li className="flex items-center gap-3 text-sm" style={{ color: 'var(--footer-text)', opacity: 0.8 }}>
+                                <Mail className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--primary-400)' }} />
                                 <a
                                     href={`mailto:${email}`}
-                                    className="hover:text-primary-400 transition-colors"
+                                    className="hover:opacity-100 transition-colors"
                                 >
                                     {email}
                                 </a>
@@ -140,7 +142,7 @@ export default async function Footer() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="border-t border-secondary-800">
+            <div className="border-t" style={{ borderColor: 'var(--footer-text)', opacity: 0.2 }}>
                 <div className="container mx-auto px-4 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-400">
                         <p>© {new Date().getFullYear()} GIPKON TEKNOLOJİ. Tüm hakları saklıdır.</p>

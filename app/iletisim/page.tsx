@@ -1,27 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Metadata } from "next";
+import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import Button from "@/components/ui/Button";
-
-const contactInfo = [
-    {
-        icon: Phone,
-        title: "Telefon",
-        details: ["+90 XXX XXX XX XX", "+90 XXX XXX XX XX"],
-    },
-    {
-        icon: Mail,
-        title: "E-posta",
-        details: ["info@gipkon.com.tr", "destek@gipkon.com.tr"],
-    },
-    {
-        icon: MapPin,
-        title: "Adres",
-        details: ["Adres bilgisi buraya gelecek", "İstanbul, Türkiye"],
-    },
-];
 
 export default function IletisimPage() {
     const [formData, setFormData] = useState({
@@ -32,8 +13,17 @@ export default function IletisimPage() {
         message: "",
     });
 
+    const [settings, setSettings] = useState<any>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+
+    useEffect(() => {
+        // Fetch Settings
+        fetch("/api/admin/settings")
+            .then(res => res.json())
+            .then(data => setSettings(data))
+            .catch(err => console.error(err));
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -55,6 +45,31 @@ export default function IletisimPage() {
     ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
+    const contactInfo = [
+        {
+            icon: Phone,
+            title: "Telefon",
+            details: [
+                settings?.contact?.phone || "+90 XXX XXX XX XX",
+                settings?.contact?.gsm || ""
+            ].filter(Boolean),
+        },
+        {
+            icon: Mail,
+            title: "E-posta",
+            details: [
+                settings?.contact?.email || "info@gipkon.com.tr"
+            ],
+        },
+        {
+            icon: MapPin,
+            title: "Adres",
+            details: [
+                settings?.contact?.address || "Adres bilgisi yükleniyor..."
+            ],
+        },
+    ];
 
     return (
         <div className="min-h-screen">
@@ -244,15 +259,26 @@ export default function IletisimPage() {
                             <h2 className="text-3xl font-display font-bold text-secondary-800 mb-6">
                                 Ofisimiz
                             </h2>
-                            <div className="rounded-xl overflow-hidden shadow-lg h-[600px] bg-gray-200">
-                                {/* Google Maps iframe will go here */}
-                                <div className="w-full h-full flex items-center justify-center text-secondary-600">
-                                    <div className="text-center">
-                                        <MapPin className="w-16 h-16 mx-auto mb-4 text-primary-600" />
-                                        <p>Google Maps entegrasyonu</p>
-                                        <p className="text-sm mt-2">Harita buraya eklenecek</p>
+                            <div className="rounded-xl overflow-hidden shadow-lg h-[600px] bg-gray-200 relative">
+                                {settings?.contact?.mapUrl ? (
+                                    <iframe
+                                        src={settings.contact.mapUrl}
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 0 }}
+                                        allowFullScreen={true}
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        className="absolute inset-0 w-full h-full"
+                                    ></iframe>
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-secondary-600">
+                                        <div className="text-center">
+                                            <MapPin className="w-16 h-16 mx-auto mb-4 text-primary-600" />
+                                            <p>Harita bilgisi yükleniyor...</p>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -298,7 +324,7 @@ export default function IletisimPage() {
                                     </div>
                                     <div className="flex justify-between">
                                         <span>Acil Durum:</span>
-                                        <span className="font-medium">+90 XXX XXX XX XX</span>
+                                        <span className="font-medium">{settings?.contact?.gsm || "+90 XXX XXX XX XX"}</span>
                                     </div>
                                 </div>
                             </div>

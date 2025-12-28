@@ -16,11 +16,17 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         const CardContent = (
             <div
                 className={cn(
-                    "group relative overflow-hidden rounded-xl bg-white border border-gray-200",
-                    "hover:shadow-xl hover:border-primary-300 transition-all duration-300",
+                    "group relative overflow-hidden rounded-xl",
+                    "hover:shadow-xl transition-all duration-300",
                     "cursor-pointer",
                     className
                 )}
+                style={{
+                    backgroundColor: 'var(--card-bg)',
+                    borderColor: 'var(--card-border)',
+                    borderWidth: '1px',
+                    color: 'var(--card-text)'
+                }}
                 ref={ref}
                 {...props}
             >
@@ -43,11 +49,11 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 
                 {/* Content */}
                 <div className="p-6">
-                    <h3 className="text-xl font-semibold text-secondary-800 mb-2 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:opacity-80 transition-colors" style={{ color: 'var(--card-text)' }}>
                         {title}
                     </h3>
                     {description && (
-                        <p className="text-secondary-600 text-sm line-clamp-3">{description}</p>
+                        <p className="text-sm line-clamp-3" style={{ color: 'var(--card-text)', opacity: 0.8 }}>{description}</p>
                     )}
 
                     {href && (

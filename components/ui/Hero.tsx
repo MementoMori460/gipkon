@@ -53,7 +53,7 @@ export default function Hero({ slides, autoplay = true, interval = 5000 }: HeroP
     };
 
     return (
-        <div className="relative h-[600px] overflow-hidden bg-secondary-900">
+        <div className="relative h-[600px] overflow-hidden bg-black">
             {/* Slides */}
             {slides.map((slide, index) => (
                 <div
@@ -71,7 +71,13 @@ export default function Hero({ slides, autoplay = true, interval = 5000 }: HeroP
                     />
 
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/90 via-secondary-900/70 to-transparent" />
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundColor: 'var(--hero-overlay)',
+                            opacity: 'var(--hero-overlay-opacity)'
+                        }}
+                    />
 
                     {/* Content */}
                     <div className="relative h-full container mx-auto px-4 flex items-center">
@@ -81,11 +87,11 @@ export default function Hero({ slides, autoplay = true, interval = 5000 }: HeroP
                                     {slide.subtitle}
                                 </p>
                             )}
-                            <h1 className="text-5xl md:text-6xl font-display font-bold mb-4 animate-slide-up">
+                            <h1 className="text-5xl md:text-6xl font-display font-bold mb-4 animate-slide-up" style={{ color: 'var(--hero-text)' }}>
                                 {slide.title}
                             </h1>
                             {slide.description && (
-                                <p className="text-xl text-gray-200 mb-8 animate-slide-up">
+                                <p className="text-xl mb-8 animate-slide-up" style={{ color: 'var(--hero-text)', opacity: 0.9 }}>
                                     {slide.description}
                                 </p>
                             )}
@@ -137,8 +143,8 @@ export default function Hero({ slides, autoplay = true, interval = 5000 }: HeroP
                         key={index}
                         onClick={() => goToSlide(index)}
                         className={`w-3 h-3 rounded-full transition-all ${index === currentSlide
-                                ? "bg-primary-500 w-8"
-                                : "bg-white/50 hover:bg-white/75"
+                            ? "bg-primary-500 w-8"
+                            : "bg-white/50 hover:bg-white/75"
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />

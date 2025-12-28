@@ -1,38 +1,50 @@
 [
     {
         "id": 1,
-        "logo": "/uploads/ref_logo_hexacore.png",
-        "name": "Hexacore Teknoloji",
-        "sector": "Teknoloji"
+        "name": "Gemak Gıda End. Makinaları",
+        "image": "/images/references/gemak.png",
+        "sector": "Gıda Endüstris"
     },
     {
         "id": 2,
-        "logo": "/uploads/ref_logo_hexacore.png",
-        "name": "Global Pharma",
-        "sector": "İlaç ve Sağlık"
+        "name": "Roketsan A.Ş.",
+        "image": "/images/references/roketsan.png",
+        "sector": "Savunma Sanayi"
     },
     {
         "id": 3,
-        "logo": "/uploads/ref_logo_hexacore.png",
-        "name": "Ankara Sanayi",
-        "sector": "Üretim"
+        "name": "Smart Proses",
+        "image": "/images/references/smart-proses.png",
+        "sector": "Proses Otomasyonu"
     },
     {
         "id": 4,
-        "logo": "/uploads/ref_logo_hexacore.png",
-        "name": "Berlin Tech Solution",
-        "sector": "Yazılım"
+        "name": "Neosis",
+        "image": "/images/references/neosis.png",
+        "sector": "Otomasyon Sistemleri"
     },
     {
         "id": 5,
-        "logo": "/uploads/ref_logo_hexacore.png",
-        "name": "Marmara Gıda",
-        "sector": "Gıda"
+        "name": "Eti Gıda",
+        "image": "/images/references/eti.png",
+        "sector": "Gıda Sanayi"
     },
     {
         "id": 6,
-        "logo": "/uploads/ref_logo_hexacore.png",
-        "name": "Ege Tekstil",
-        "sector": "Tekstil"
+        "name": "Çamlıca Gıda",
+        "image": "/images/references/camlica.png",
+        "sector": "Gıda Sanayi"
+    },
+    {
+        "id": 7,
+        "name": "Altın Köy",
+        "image": "/images/references/altin-koy.png",
+        "sector": "Gıda ve Turizm"
+    },
+    {
+        "id": 8,
+        "name": "Amak Co.",
+        "image": "/images/references/amak.png",
+        "sector": "Endüstriyel Çözümler"
     }
 ]
