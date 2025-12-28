@@ -1,9 +1,10 @@
+
 import { NextAuthProvider } from "@/components/providers/NextAuthProvider";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
-import { LayoutDashboard, FolderKanban, Users, LogOut } from "lucide-react";
+import { LayoutDashboard, FolderKanban, Users, LogOut, Image as ImageIcon } from "lucide-react";
 
 export default async function AdminLayout({
     children,
@@ -45,13 +46,7 @@ export default async function AdminLayout({
                             <FolderKanban size={20} />
                             <span>Projeler</span>
                         </Link>
-                        <Link
-                            href="/admin/references"
-                            className="flex items-center space-x-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition-colors"
-                        >
-                            <Users size={20} />
-                            <span>Referanslar</span>
-                        </Link>
+
                         <Link
                             href="/admin/hero"
                             className="flex items-center space-x-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition-colors"
@@ -93,6 +88,6 @@ export default async function AdminLayout({
                     {children}
                 </main>
             </div>
-        </NextAuthProvider>
+        </NextAuthProvider >
     );
 }
