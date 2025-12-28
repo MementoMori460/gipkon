@@ -33,14 +33,10 @@ export async function GET() {
             zip.addLocalFolder(dataPath, "data");
         }
 
-        // Add uploads folder if it exists - OPTIONAL but good for full backup
-        // For now, let's stick to 'data' as requested, or maybe separate?
-        // The user said "bu dosyaları" referring to the JSONs usually, but uploads are also critical.
-        // Let's include uploads but be careful about size. 
-        // For this task, I'll stick to 'data' which contains the core database. 
-        // If users want to migrate images, they usually copy the public folder.
-        // But for "portability", images reference local paths.
-        // Let's include 'data' only for now to ensure speed and stability as per explicit request for "JSON files".
+        // Include 'public/uploads' in backup
+        if (fs.existsSync(uploadsPath)) {
+            zip.addLocalFolder(uploadsPath, "public/uploads");
+        }
 
         const buffer = zip.toBuffer();
         const date = new Date().toISOString().split('T')[0];

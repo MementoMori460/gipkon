@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronDown, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 
 const navigation = [
     {
@@ -98,11 +99,16 @@ export default function Header() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         {settings?.branding?.logo ? (
-                            <img
-                                src={settings.branding.logo}
-                                alt={settings?.siteName || "GIPKON"}
-                                className="h-12 w-auto object-contain"
-                            />
+                            <div className="relative h-12 w-auto aspect-[3/1]">
+                                <Image
+                                    src={settings.branding.logo}
+                                    alt={settings?.siteName || "GIPKON"}
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 768px) 100vw, 200px"
+                                    priority
+                                />
+                            </div>
                         ) : (
                             <>
                                 <span className="text-2xl font-display font-bold text-primary-700">

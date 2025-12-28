@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
     LayoutDashboard,
@@ -79,11 +80,16 @@ export default function AdminShell({ children, userName, logoUrl }: AdminShellPr
                 <div className="p-6 border-b border-gray-100 flex items-center justify-between">
                     <Link href="/" className="flex items-center">
                         {logoUrl ? (
-                            <img
-                                src={logoUrl}
-                                alt="GIPKON Admin"
-                                className="h-8 w-auto object-contain"
-                            />
+                            <div className="relative h-8 w-auto aspect-[3/1]">
+                                <Image
+                                    src={logoUrl}
+                                    alt="GIPKON Admin"
+                                    fill
+                                    className="object-contain"
+                                    sizes="150px"
+                                    priority
+                                />
+                            </div>
                         ) : (
                             <div className="text-2xl font-bold text-primary-600">
                                 GIPKON
