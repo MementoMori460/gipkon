@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { Upload } from "lucide-react";
+import ImagePicker from "@/components/admin/ImagePicker";
 
 type ReferenceFormData = {
     name: string;
@@ -19,7 +21,8 @@ type Props = {
 export default function ReferenceForm({ initialData, isEdit = false }: Props) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm<ReferenceFormData>({
+    const [showPicker, setShowPicker] = useState(false);
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm<ReferenceFormData>({
         defaultValues: initialData || {
             logo: "/images/references/placeholder.png"
         }
@@ -84,10 +87,20 @@ export default function ReferenceForm({ initialData, isEdit = false }: Props) {
 
             <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Logo URL</label>
-                <input
-                    {...register("logo")}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 outline-none"
-                />
+                <div className="flex gap-2">
+                    <input
+                        {...register("logo")}
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 outline-none"
+                    />
+                    <button
+                        type="button"
+                        onClick={() => setShowPicker(true)}
+                        className="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 text-gray-600"
+                        title="Resim Seç"
+                    >
+                        <Upload size={20} />
+                    </button>
+                </div>
             </div>
 
             <div className="flex justify-end gap-3 pt-4">
@@ -105,6 +118,15 @@ export default function ReferenceForm({ initialData, isEdit = false }: Props) {
                     {loading ? "Kaydediliyor..." : (isEdit ? "Güncelle" : "Oluştur")}
                 </button>
             </div>
+            {showPicker && (
+                <ImagePicker
+                    onSelect={(url) => {
+                        setValue("logo", url);
+                        setShowPicker(false);
+                    }}
+                    onClose={() => setShowPicker(false)}
+                />
+            )}
         </form>
     );
 }

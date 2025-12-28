@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { Upload } from "lucide-react";
+import ImagePicker from "@/components/admin/ImagePicker";
 
 type ProjectFormData = {
     title: string;
@@ -25,7 +27,8 @@ type Props = {
 export default function ProjectForm({ initialData, isEdit = false }: Props) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm<ProjectFormData>({
+    const [showPicker, setShowPicker] = useState(false);
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm<ProjectFormData>({
         defaultValues: initialData || {
             year: new Date().getFullYear(),
             image: "/images/projects/placeholder.svg"
@@ -126,11 +129,20 @@ export default function ProjectForm({ initialData, isEdit = false }: Props) {
 
             <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Görsel URL</label>
-                <input
-                    {...register("image")}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 outline-none"
-                />
-                <p className="text-xs text-gray-500 mt-1">Şimdilik manuel URL girişi. Yakında dosya yükleme eklenecek.</p>
+                <div className="flex gap-2">
+                    <input
+                        {...register("image")}
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 outline-none"
+                    />
+                    <button
+                        type="button"
+                        onClick={() => setShowPicker(true)}
+                        className="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 text-gray-600"
+                        title="Resim Seç"
+                    >
+                        <Upload size={20} />
+                    </button>
+                </div>
             </div>
 
             <div>
@@ -166,6 +178,15 @@ export default function ProjectForm({ initialData, isEdit = false }: Props) {
                     {loading ? "Kaydediliyor..." : (isEdit ? "Güncelle" : "Oluştur")}
                 </button>
             </div>
+            {showPicker && (
+                <ImagePicker
+                    onSelect={(url) => {
+                        setValue("image", url);
+                        setShowPicker(false);
+                    }}
+                    onClose={() => setShowPicker(false)}
+                />
+            )}
         </form>
     );
 }

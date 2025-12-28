@@ -44,6 +44,12 @@
             "active": true
         },
         {
+            "id": "referanslar",
+            "name": "REFERANSLAR",
+            "href": "/referanslar",
+            "active": true
+        },
+        {
             "id": "projeler",
             "name": "PROJELERİMİZ",
             "href": "/projeler",

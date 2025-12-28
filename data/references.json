@@ -1,8 +1,38 @@
 [
     {
         "id": 1,
-        "logo": "/images/references/placeholder.png",
-        "name": "Test Reference",
+        "logo": "/uploads/ref_logo_hexacore.png",
+        "name": "Hexacore Teknoloji",
+        "sector": "Teknoloji"
+    },
+    {
+        "id": 2,
+        "logo": "/uploads/ref_logo_hexacore.png",
+        "name": "Global Pharma",
+        "sector": "İlaç ve Sağlık"
+    },
+    {
+        "id": 3,
+        "logo": "/uploads/ref_logo_hexacore.png",
+        "name": "Ankara Sanayi",
+        "sector": "Üretim"
+    },
+    {
+        "id": 4,
+        "logo": "/uploads/ref_logo_hexacore.png",
+        "name": "Berlin Tech Solution",
+        "sector": "Yazılım"
+    },
+    {
+        "id": 5,
+        "logo": "/uploads/ref_logo_hexacore.png",
+        "name": "Marmara Gıda",
         "sector": "Gıda"
+    },
+    {
+        "id": 6,
+        "logo": "/uploads/ref_logo_hexacore.png",
+        "name": "Ege Tekstil",
+        "sector": "Tekstil"
     }
 ]

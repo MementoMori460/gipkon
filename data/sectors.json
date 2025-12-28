@@ -4,7 +4,7 @@
         "title": "Gıda Sektörü",
         "slug": "gida-sektoru",
         "description": "Gıda sektörü için özel otomasyon çözümleri. Hijyen standartlarına uygun, verimli ve güvenilir sistemler.",
-        "image": "/images/sectors/gida.jpg",
+        "image": "/uploads/hero_gida.png",
         "features": [
             "Hijyenik tasarım",
             "Tam otomasyon",
@@ -17,7 +17,7 @@
         "title": "Tekstil Sektörü",
         "slug": "tekstil-sektoru",
         "description": "Tekstil üretim süreçleri için entegre otomasyon çözümleri.",
-        "image": "/images/sectors/tekstil.jpg",
+        "image": "/uploads/hero_tekstil.png",
         "features": [
             "Üretim otomasyonu",
             "Kalite kontrol",
@@ -30,7 +30,7 @@
         "title": "Sağlık Sektörü",
         "slug": "saglik-sektoru",
         "description": "Sağlık sektörü için hassas ve güvenilir otomasyon sistemleri.",
-        "image": "/images/sectors/saglik.jpg",
+        "image": "/uploads/hero_saglik.png",
         "features": [
             "Sterilizasyon sistemleri",
             "Hassas kontrol",
@@ -43,7 +43,7 @@
         "title": "Kimya Sektörü",
         "slug": "kimya-sektoru",
         "description": "Kimya endüstrisi için güvenli ve verimli otomasyon çözümleri.",
-        "image": "/images/sectors/kimya.jpg",
+        "image": "/uploads/sector_kimya.png",
         "features": [
             "Güvenlik sistemleri",
             "Proses kontrolü",
@@ -56,7 +56,7 @@
         "title": "İlaç Sektörü",
         "slug": "ilac-sektoru",
         "description": "İlaç üretimi için GMP standartlarına uygun otomasyon sistemleri.",
-        "image": "/images/sectors/ilac.jpg",
+        "image": "/uploads/sector_ilac.png",
         "features": [
             "GMP uyumlu",
             "Validasyon",
@@ -69,7 +69,7 @@
         "title": "Kozmetik Sektörü",
         "slug": "kozmetik-sektoru",
         "description": "Kozmetik üretimi için özel otomasyon çözümleri.",
-        "image": "/images/sectors/kozmetik.jpg",
+        "image": "/uploads/project_sut.png",
         "features": [
             "Hijyenik üretim",
             "Karıştırma sistemleri",
@@ -82,7 +82,7 @@
         "title": "Enerji Sektörü",
         "slug": "enerji-sektoru",
         "description": "Enerji üretim ve dağıtım sistemleri için otomasyon çözümleri.",
-        "image": "/images/sectors/enerji.jpg",
+        "image": "/uploads/sector_enerji.png",
         "features": [
             "SCADA sistemleri",
             "Enerji yönetimi",
@@ -95,7 +95,7 @@
         "title": "Maden Sektörü",
         "slug": "maden-sektoru",
         "description": "Maden işletmeleri için dayanıklı otomasyon sistemleri.",
-        "image": "/images/sectors/maden.jpg",
+        "image": "/uploads/sector_maden.png",
         "features": [
             "Ağır sanayi",
             "Dayanıklı sistemler",
@@ -108,7 +108,7 @@
         "title": "Savunma Sanayi",
         "slug": "savunma-sanayi",
         "description": "Savunma sanayi için yüksek güvenlikli otomasyon çözümleri.",
-        "image": "/images/sectors/savunma.jpg",
+        "image": "/uploads/sector_savunma.png",
         "features": [
             "Yüksek güvenlik",
             "Hassas kontrol",
