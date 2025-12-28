@@ -2,7 +2,7 @@
 import { NextAuthProvider } from "@/components/providers/NextAuthProvider";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { LayoutDashboard, FolderKanban, Users, LogOut, Image as ImageIcon } from "lucide-react";
 

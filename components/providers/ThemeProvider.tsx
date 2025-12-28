@@ -98,6 +98,20 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
                     });
                 }
             }
+
+            // Advanced theme settings
+            if (settings.theme?.backgroundColor) {
+                document.documentElement.style.setProperty('--page-bg', settings.theme.backgroundColor);
+            }
+            if (settings.theme?.textColor) {
+                document.documentElement.style.setProperty('--page-text', settings.theme.textColor);
+            }
+            if (settings.theme?.tagBackgroundColor) {
+                document.documentElement.style.setProperty('--tag-bg', settings.theme.tagBackgroundColor);
+            }
+            if (settings.theme?.tagTextColor) {
+                document.documentElement.style.setProperty('--tag-text', settings.theme.tagTextColor);
+            }
         } catch (error) {
             console.error("Failed to load theme", error);
         }

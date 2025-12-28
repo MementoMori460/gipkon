@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { Upload, Image as ImageIcon, Check, X, Trash2 } from "lucide-react";
 
 interface ImagePickerProps {
@@ -128,10 +129,11 @@ export default function ImagePicker({ onSelect, onClose }: ImagePickerProps) {
                                                 onClose();
                                             }}
                                         >
-                                            <img
+                                            <Image
                                                 src={img.url}
                                                 alt={img.name}
-                                                className="w-full h-full object-cover"
+                                                fill
+                                                className="object-cover"
                                             />
                                             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
                                                 <div className="opacity-0 group-hover:opacity-100 bg-primary-600 text-white text-xs px-2 py-1 rounded">

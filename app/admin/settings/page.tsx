@@ -24,7 +24,12 @@ export default function SettingsPage() {
             instagram: ""
         },
         theme: {
-            primaryColor: "#0056e0"
+            primaryColor: "#0056e0",
+            secondaryColor: "#445d85",
+            backgroundColor: "#f9fafb",
+            textColor: "#111827",
+            tagBackgroundColor: "#e0f2fe",
+            tagTextColor: "#0369a1"
         }
     });
 
@@ -200,6 +205,92 @@ export default function SettingsPage() {
                                         <p className="mt-1 text-xs text-gray-500">
                                             Metinler ve ikincil elemanlar için temel renk. (Genellikle Koyu Gri veya Lacivert tonları).
                                         </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="pt-4 border-t border-gray-100">
+                            <h3 className="text-sm font-medium text-gray-900 mb-4">Gelişmiş Renk Ayarları</h3>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                                        Sayfa Arkaplanı
+                                    </label>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="color"
+                                            value={settings.theme?.backgroundColor || "#f9fafb"}
+                                            onChange={(e) => handleThemeChange("backgroundColor", e.target.value)}
+                                            className="h-8 w-12 rounded border cursor-pointer"
+                                        />
+                                        <input
+                                            type="text"
+                                            value={settings.theme?.backgroundColor || "#f9fafb"}
+                                            onChange={(e) => handleThemeChange("backgroundColor", e.target.value)}
+                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                                        Genel Metin Rengi
+                                    </label>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="color"
+                                            value={settings.theme?.textColor || "#111827"}
+                                            onChange={(e) => handleThemeChange("textColor", e.target.value)}
+                                            className="h-8 w-12 rounded border cursor-pointer"
+                                        />
+                                        <input
+                                            type="text"
+                                            value={settings.theme?.textColor || "#111827"}
+                                            onChange={(e) => handleThemeChange("textColor", e.target.value)}
+                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                                        Etiket Arkaplanı
+                                    </label>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="color"
+                                            value={settings.theme?.tagBackgroundColor || "#e0f2fe"}
+                                            onChange={(e) => handleThemeChange("tagBackgroundColor", e.target.value)}
+                                            className="h-8 w-12 rounded border cursor-pointer"
+                                        />
+                                        <input
+                                            type="text"
+                                            value={settings.theme?.tagBackgroundColor || "#e0f2fe"}
+                                            onChange={(e) => handleThemeChange("tagBackgroundColor", e.target.value)}
+                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                                        Etiket Metin Rengi
+                                    </label>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="color"
+                                            value={settings.theme?.tagTextColor || "#0369a1"}
+                                            onChange={(e) => handleThemeChange("tagTextColor", e.target.value)}
+                                            className="h-8 w-12 rounded border cursor-pointer"
+                                        />
+                                        <input
+                                            type="text"
+                                            value={settings.theme?.tagTextColor || "#0369a1"}
+                                            onChange={(e) => handleThemeChange("tagTextColor", e.target.value)}
+                                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 text-xs p-1.5 border"
+                                        />
                                     </div>
                                 </div>
                             </div>

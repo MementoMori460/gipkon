@@ -168,7 +168,7 @@ export default function HeroPage() {
                 <HeroForm
                     slide={currentSlide}
                     onSave={handleSave}
-                    onCancel={() => { setIsEditing(false); setCurrentSlide(null); }}
+                    onClose={() => { setIsEditing(false); setCurrentSlide(null); }}
                 />
             )}
         </div>

@@ -35,6 +35,10 @@ const config: Config = {
                     800: 'var(--secondary-800)',
                     900: 'var(--secondary-900)',
                 },
+                'page-bg': 'var(--page-bg)',
+                'page-text': 'var(--page-text)',
+                'tag-bg': 'var(--tag-bg)',
+                'tag-text': 'var(--tag-text)',
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],

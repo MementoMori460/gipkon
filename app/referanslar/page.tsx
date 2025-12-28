@@ -60,7 +60,7 @@ export default async function ReferencesPage() {
                                     <h3 className="text-lg font-semibold text-gray-900 text-center mb-1">
                                         {ref.name}
                                     </h3>
-                                    <span className="text-sm text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+                                    <span className="text-sm bg-tag-bg text-tag-text px-3 py-1 rounded-full">
                                         {ref.sector}
                                     </span>
                                 </div>

@@ -40,7 +40,7 @@ export default function MediaPage() {
                     <h2 className="text-xl font-semibold text-gray-800 mb-2">Resimlerinizi Yönetin</h2>
                     <p className="text-gray-500 mb-6">
                         Buradan yeni resimler yükleyebilir veya mevcut resimlerinizi görüntüleyebilirsiniz.
-                        Site genelinde kullanmak için "Yeni Resim Yükle" butonuna tıklayın.
+                        Site genelinde kullanmak için &quot;Yeni Resim Yükle&quot; butonuna tıklayın.
                     </p>
                     <button
                         onClick={() => setShowPicker(true)}

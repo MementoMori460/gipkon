@@ -27,6 +27,12 @@
     --secondary-700: #344667;
     --secondary-800: #242f49;
     --secondary-900: #14182b;
+
+    /* Advanced Theme Defaults */
+    --page-bg: #f9fafb;
+    --page-text: #111827;
+    --tag-bg: #e0f2fe;
+    --tag-text: #0369a1;
   }
 
   body {

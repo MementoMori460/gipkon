@@ -10,8 +10,8 @@ interface Slide {
     subtitle: string;
     description: string;
     image: string;
-    ctaText: string;
-    ctaLink: string;
+    cta?: { text: string; href: string };
+    secondaryCta?: { text: string; href: string };
 }
 
 interface HeroFormProps {

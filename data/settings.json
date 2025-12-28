@@ -12,6 +12,11 @@
     "instagram": "https://instagram.com/gipkon"
   },
   "theme": {
-    "primaryColor": "#fafafa"
+    "primaryColor": "#0056e0",
+    "secondaryColor": "#445d85",
+    "backgroundColor": "#f9fafb",
+    "textColor": "#111827",
+    "tagBackgroundColor": "#000000",
+    "tagTextColor": "#ffffff"
   }
 }
