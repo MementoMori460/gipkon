@@ -5,7 +5,10 @@ services:
     image: ghcr.io/mementomori460/gipkon:latest
     restart: always
     ports:
-      - "33031:3000"
+      - target: 3000
+        published: 33031
+        protocol: tcp
+        mode: host
     environment:
       - NEXTAUTH_SECRET=changeme # Portainer'dan değiştirmeyi unutmayın
       - NEXTAUTH_URL=https://siteniz.com
