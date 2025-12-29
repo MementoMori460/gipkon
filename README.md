@@ -18,4 +18,4 @@ Open [http://localhost:3000](http://localhost:3000)
 - Tailwind CSS
 - Framer Motion
 - React Hook Form
-- vercel build test2
+- vercel build test3
