@@ -10,7 +10,10 @@ services:
       - NEXTAUTH_SECRET=changeme # Portainer'dan değiştirmeyi unutmayın
       - NEXTAUTH_URL=https://siteniz.com
     volumes:
-      # Data klasörünü dışarıya bağlıyoruz ki veriler kaybolmasın
-      - ./data:/app/data
-      # Upload edilen resimler için
-      - ./public/uploads:/app/public/uploads
+      # Named Volumes kullanıyoruz (Swarm uyumlu ve güvenli)
+      - gipkon_data:/app/data
+      - gipkon_uploads:/app/public/uploads
+
+volumes:
+  gipkon_data:
+  gipkon_uploads:
