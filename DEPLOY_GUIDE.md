@@ -67,30 +67,74 @@ Kendi sanal sunucunuz (DigitalOcean, AWS, Hetzner vb.) varsa:
 
 ---
 
-## Seçenek 3: Docker & Portainer Kurulumu (Tavsiye Edilen)
+---
 
-Eğer kendi sunucunuzda Portainer varsa, bu en temiz ve yönetilebilir yöntemdir.
+## Seçenek 3: Docker & Portainer (Swarm Uyumlu)
 
-1.  **Build Alın**:
-    Bilgisayarınızda `npm run build` komutunu çalıştırın.
+Portainer'ınızın **Swarm Modunda** çalıştığı anlaşılıyor. Bu modda Portainer direkt derleme (build) yapamaz. Bu yüzden kodu önce GitHub üzerinde derleyip Portainer'a hazır bir paket (image) olarak sunmalıyız.
 
-2.  **Stack (Yığın) Hazırlayın**:
-    Portainer paneline girin:
-    *   **Stacks** > **Add stack**
-    *   **Name**: `gipkon`
-    *   **Method**: `Upload` (veya Repository seçebilirsiniz)
-    *   Hazırladığım `Dockerfile` ve `docker-compose.yml` dosyalarını kullanın.
+Bunun için otomatik bir sistem (GitHub Action) kurdum.
 
-    Ancak en kolay yöntem **Build** işlemini Portainer'a bırakmaktır. Bunun için projenizi GitHub/GitLab'e yükleyin ve Portainer'da "Repository" sekmesini seçin.
+### Adım 1: Kodu GitHub'a Yükleyin
 
-3.  **Volume Ayarları (ÖNEMLİ)**:
-    Verilerin silinmemesi için `docker-compose.yml` dosyasındaki şu volume ayarlarının çalıştığından emin olun:
-    ```yaml
-    volumes:
-      - ./data:/app/data
-      - ./public/uploads:/app/public/uploads
-    ```
-    Bu ayar sayesinde, container silinse bile `data` ve `uploads` klasörleri sunucunuzda kalır.
+Yaptığım değişiklikleri (özellikle `.github/workflows/deploy.yml` dosyasını) GitHub'a yükleyin:
+
+```bash
+git add .
+git commit -m "Add Docker CI/CD workflow"
+git push origin main
+```
+
+Bunu yaptığınızda GitHub'da "Actions" sekmesinde bir işlem başlayacak ve `ghcr.io/mementomori460/gipkon` adında bir imaj oluşturacak. Bu işlemin bitmesini (yeşil tik olmasını) bekleyin.
+
+### Adım 2: Portainer Kurulumu
+
+1.  Portainer paneline girin: **Stacks** > **Add stack**
+2.  **Name**: `gipkon`
+3.  **Method**: `Repository`
+4.  **Repository URL**: `https://github.com/MementoMori460/gipkon.git`
+5.  **Environment variables**:
+    *   `NEXTAUTH_SECRET`: (Daha önce oluşturduğunuz şifre)
+6.  **Deploy the stack** butonuna basın.
+
+> **Not (ÖNEMLİ):** Eğer GitHub projeniz **Private (Gizli)** ise:
+> 1.  GitHub'da profilinizden: **Settings > Developer Settings > Personal access tokens (Classic)** yoluna gidin. "Generate new token" deyin ve `read:packages` iznini seçip token oluşturun.
+> 2.  Portainer'da **Registries** menüsüne gidin. **Custom registry** seçin.
+>     *   **Name**: `GitHub Container Registry`
+>     *   **Registry URL**: `ghcr.io`
+>     *   **Username**: GitHub kullanıcı adınız
+>     *   **Password**: Az önce oluşturduğunuz Token
+> 3.  Stack oluştururken bu Registry'yi kullanması gerektiğini belirtin (veya Authentication kısmında kullanın).
+
+Fakat projeniz **Public** ise buna gerek kalmayacaktır.
+
+---
+
+## Adım 3: Nginx Proxy Manager (NPM) Ayarları
+
+Uygulamanız artık `33031` portundan çalışıyor. Sitenizi yayına almak için Nginx Proxy Manager'da şu ayarları yapın:
+
+1.  **Dashboard** > **Add Proxy Host**
+2.  **Domain Names**: `siteniz.com` (veya sunucu IP'niz)
+3.  **Scheme**: `http`
+4.  **Forward Host**: `10.0.100.27` (veya Docker sunucunuzun IP adresi)
+5.  **Forward Port**: `33031`
+6.  **Block Common Exploits**: Açık
+7.  **SSL** sekmesine geçin:
+    *   **SSL Certificate**: `Request a new SSL Certificate`
+    *   **Force SSL**: Açık
+    *   **HTTP/2 Support**: Açık
+8.  **Save** butonuna basın.
+
+Artık siteniz `https://siteniz.com` adresinde güvenli bir şekilde çalışacaktır.
+
+---
+
+## ⚠️ Önemli Notlar
+
+1.  **Güncelleme**: Sitede bir değişiklik yaptığınızda `git push` yapın. GitHub Action otomatik çalışır. Bittiğinde Portainer'da Stack'in içine girip **"Update the stack"** ve **"Re-pull image"** demeniz yeterlidir.
+2.  **Veriler**: Verileriniz yine `volumes` sayesinde sunucuda güvende kalır.
+3.  **Port**: Eğer `33031` portu doluysa `docker-compose.yml` dosyasından ve NPM ayarlarından değiştirebilirsiniz.
 
 ---
 

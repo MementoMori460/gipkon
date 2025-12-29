@@ -2,11 +2,10 @@ version: '3'
 
 services:
   gipkon-app:
-    container_name: gipkon-web
-    build: .
+    image: ghcr.io/mementomori460/gipkon:latest
     restart: always
     ports:
-      - "3000:3000"
+      - "33031:3000"
     environment:
       - NEXTAUTH_SECRET=changeme # Portainer'dan değiştirmeyi unutmayın
       - NEXTAUTH_URL=https://siteniz.com
