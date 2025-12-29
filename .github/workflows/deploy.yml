@@ -47,3 +47,13 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Trigger Portainer Webhook
+        if: success()
+        run: |
+          if [ -n "${{ secrets.PORTAINER_WEBHOOK }}" ]; then
+            curl -X POST "${{ secrets.PORTAINER_WEBHOOK }}"
+            echo "Webhook triggered successfully."
+          else
+            echo "No webhook configured. Skipping."
+          fi

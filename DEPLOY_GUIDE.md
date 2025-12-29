@@ -138,6 +138,25 @@ Artık siteniz `https://siteniz.com` adresinde güvenli bir şekilde çalışaca
 
 ---
 
+---
+
+## Adım 4: Otomatik Güncelleme (Webhook) Ayarı
+
+Vercel gibi otomatik güncelleme olmasını isterseniz (her `git push` yaptığınızda sitenin yenilenmesi):
+
+1.  Portainer'da **Services** (veya Stack) içine girin.
+2.  `gipkon_gipkon-app` servisine tıklayın.
+3.  Sayfanın altında **Service webhook** (veya Webhook) bölümünü bulun ve **Create a service webhook** deyin.
+4.  Size verdiği uzun Linki kopyalayın.
+5.  GitHub'a gidin: **Settings > Secrets and variables > Actions**
+6.  `New repository secret` butonuna basın.
+    *   **Name**: `PORTAINER_WEBHOOK`
+    *   **Value**: Kopyaladığınız linki yapıştırın ve ekleyin.
+
+Artık her kod değişikliğinizde site otomatik güncellenecektir! 🚀
+
+---
+
 ## ⚠️ Önemli Notlar
 
 1.  **Resim Yükleme**: `public/uploads` klasörünün yazılabilir olduğundan emin olun.
