@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  gipkon-app:
+    container_name: gipkon-web
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXTAUTH_SECRET=changeme # Portainer'dan değiştirmeyi unutmayın
+      - NEXTAUTH_URL=https://siteniz.com
+    volumes:
+      # Data klasörünü dışarıya bağlıyoruz ki veriler kaybolmasın
+      - ./data:/app/data
+      # Upload edilen resimler için
+      - ./public/uploads:/app/public/uploads

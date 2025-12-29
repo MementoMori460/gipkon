@@ -29,15 +29,27 @@ export default function IletisimPage() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
 
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-
-        // Reset success message after 5 seconds
-        setTimeout(() => setIsSuccess(false), 5000);
+            if (res.ok) {
+                setIsSuccess(true);
+                setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+                // Reset success message after 5 seconds
+                setTimeout(() => setIsSuccess(false), 5000);
+            } else {
+                alert("Mesaj gönderilirken bir hata oluştu.");
+            }
+        } catch (error) {
+            console.error("Hata:", error);
+            alert("Bir hata oluştu.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (
