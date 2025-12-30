@@ -63,8 +63,7 @@ export default function IletisimPage() {
             icon: Phone,
             title: "Telefon",
             details: [
-                settings?.contact?.phone || "+90 XXX XXX XX XX",
-                settings?.contact?.gsm || ""
+                settings?.contact?.phone || "+90 312 939 86 33",
             ].filter(Boolean),
         },
         {
@@ -312,15 +311,15 @@ export default function IletisimPage() {
                                 <div className="space-y-2 text-secondary-600">
                                     <div className="flex justify-between">
                                         <span>Pazartesi - Cuma:</span>
-                                        <span className="font-medium">09:00 - 18:00</span>
+                                        <span className="font-medium">{settings?.officeHours?.weekdays || "09:00 - 18:00"}</span>
                                     </div>
                                     <div className="flex justify-between">
                                         <span>Cumartesi:</span>
-                                        <span className="font-medium">Kapalı</span>
+                                        <span className="font-medium">{settings?.officeHours?.saturday || "Kapalı"}</span>
                                     </div>
                                     <div className="flex justify-between">
                                         <span>Pazar:</span>
-                                        <span className="font-medium">Kapalı</span>
+                                        <span className="font-medium">{settings?.officeHours?.sunday || "Kapalı"}</span>
                                     </div>
                                 </div>
                             </div>

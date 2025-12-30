@@ -33,11 +33,10 @@ export default function SettingsPage() {
             linkedin: "",
             instagram: ""
         },
-        theme: {
-            header: {
-                contactTextColor: "",
-                navTextColor: ""
-            }
+        officeHours: {
+            weekdays: "",
+            saturday: "",
+            sunday: ""
         }
     });
 
@@ -49,6 +48,7 @@ export default function SettingsPage() {
                     contact: {
                         address: data.contact?.address || "",
                         phone: data.contact?.phone || "",
+                        gsm: data.contact?.gsm || "",
                         email: data.contact?.email || "",
                         mapUrl: data.contact?.mapUrl || ""
                     },
@@ -60,13 +60,13 @@ export default function SettingsPage() {
                         facebook: data.socialMedia?.facebook || "",
                         twitter: data.socialMedia?.twitter || "",
                         linkedin: data.socialMedia?.linkedin || "",
+                        linkedin: data.socialMedia?.linkedin || "",
                         instagram: data.socialMedia?.instagram || ""
                     },
-                    theme: {
-                        header: {
-                            contactTextColor: data.theme?.header?.contactTextColor || "#ffffff",
-                            navTextColor: data.theme?.header?.navTextColor || "#334155"
-                        }
+                    officeHours: {
+                        weekdays: data.officeHours?.weekdays || "09:00 - 18:00",
+                        saturday: data.officeHours?.saturday || "Kapalı",
+                        sunday: data.officeHours?.sunday || "Kapalı"
                     }
                 });
                 setIsLoading(false);
@@ -113,14 +113,10 @@ export default function SettingsPage() {
                 ...currentData,
                 contact: settings.contact,
                 branding: settings.branding,
+                branding: settings.branding,
                 socialMedia: settings.socialMedia,
-                theme: {
-                    ...currentData.theme,
-                    header: {
-                        ...currentData.theme?.header,
-                        ...settings.theme.header
-                    }
-                }
+                officeHours: settings.officeHours,
+                theme: currentData.theme // Preserve existing theme settings
             };
 
             const res = await fetch("/api/admin/settings", {
@@ -175,12 +171,22 @@ export default function SettingsPage() {
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Telefon (Sabit)</label>
                             <input
                                 type="text"
                                 value={settings.contact.phone}
                                 onChange={(e) => handleChange("contact", "phone", e.target.value)}
                                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Acil Durum (GSM)</label>
+                            <input
+                                type="text"
+                                value={settings.contact.gsm || ""}
+                                onChange={(e) => handleChange("contact", "gsm", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                                placeholder="+90 XXX XXX XX XX"
                             />
                         </div>
                         <div>
@@ -294,66 +300,62 @@ export default function SettingsPage() {
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Theme Settings */}
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
-                <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Görünüm Ayarları</h2>
-                <div className="space-y-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Üst Bar Yazı Rengi</label>
-                        <div className="flex items-center gap-3">
-                            <input
-                                type="color"
-                                value={settings.theme.header.contactTextColor}
-                                onChange={(e) => handleChange("theme.header", "contactTextColor", e.target.value)}
-                                className="h-10 w-16 p-1 rounded border cursor-pointer"
-                            />
+                {/* Office Hours */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Ofis Saatleri</h2>
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Hafta İçi</label>
                             <input
                                 type="text"
-                                value={settings.theme.header.contactTextColor}
-                                onChange={(e) => handleChange("theme.header", "contactTextColor", e.target.value)}
-                                className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none uppercase"
-                                placeholder="#FFFFFF"
+                                value={settings.officeHours.weekdays}
+                                onChange={(e) => handleChange("officeHours", "weekdays", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                                placeholder="09:00 - 18:00"
                             />
                         </div>
-                        <p className="text-xs text-gray-500 mt-1">Telefon ve E-posta yazılarının rengi.</p>
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Menü Yazı Rengi</label>
-                        <div className="flex items-center gap-3">
-                            <input
-                                type="color"
-                                value={settings.theme.header.navTextColor}
-                                onChange={(e) => handleChange("theme.header", "navTextColor", e.target.value)}
-                                className="h-10 w-16 p-1 rounded border cursor-pointer"
-                            />
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Cumartesi</label>
                             <input
                                 type="text"
-                                value={settings.theme.header.navTextColor}
-                                onChange={(e) => handleChange("theme.header", "navTextColor", e.target.value)}
-                                className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none uppercase"
-                                placeholder="#334155"
+                                value={settings.officeHours.saturday}
+                                onChange={(e) => handleChange("officeHours", "saturday", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                                placeholder="Kapalı"
                             />
                         </div>
-                        <p className="text-xs text-gray-500 mt-1">Ana menü linklerinin rengi.</p>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Pazar</label>
+                            <input
+                                type="text"
+                                value={settings.officeHours.sunday}
+                                onChange={(e) => handleChange("officeHours", "sunday", e.target.value)}
+                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
+                                placeholder="Kapalı"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Pickers */}
-            {showLogoPicker && (
-                <ImagePicker
-                    onSelect={(url) => handleChange("branding", "logo", url)}
-                    onClose={() => setShowLogoPicker(false)}
-                />
-            )}
-            {showFaviconPicker && (
-                <ImagePicker
-                    onSelect={(url) => handleChange("branding", "favicon", url)}
-                    onClose={() => setShowFaviconPicker(false)}
-                />
-            )}
-        </div>
+            {
+                showLogoPicker && (
+                    <ImagePicker
+                        onSelect={(url) => handleChange("branding", "logo", url)}
+                        onClose={() => setShowLogoPicker(false)}
+                    />
+                )
+            }
+            {
+                showFaviconPicker && (
+                    <ImagePicker
+                        onSelect={(url) => handleChange("branding", "favicon", url)}
+                        onClose={() => setShowFaviconPicker(false)}
+                    />
+                )
+            }
+        </div >
     );
 }

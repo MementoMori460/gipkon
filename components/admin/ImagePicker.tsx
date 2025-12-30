@@ -125,20 +125,20 @@ export default function ImagePicker({ onSelect, onClose }: ImagePickerProps) {
                                             key={img.url}
                                             className="group relative aspect-square border rounded-lg overflow-hidden hover:border-primary-500"
                                         >
-                                            <div
-                                                className="absolute inset-0 cursor-pointer"
-                                                onClick={() => {
-                                                    onSelect(img.url);
-                                                    onClose();
-                                                }}
-                                            />
                                             <Image
                                                 src={img.url}
                                                 alt={img.name}
                                                 fill
                                                 className="object-cover"
                                             />
-                                            <div className="absolute top-1 right-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <div
+                                                className="absolute inset-0 cursor-pointer hover:bg-black hover:bg-opacity-10 transition-colors"
+                                                onClick={() => {
+                                                    onSelect(img.url);
+                                                    onClose();
+                                                }}
+                                            />
+                                            <div className="absolute top-1 right-1 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <button
                                                     onClick={async (e) => {
                                                         e.stopPropagation();

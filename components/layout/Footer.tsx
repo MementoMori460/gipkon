@@ -32,7 +32,8 @@ export default async function Footer() {
     const social = settings?.socialMedia || {};
 
     const address = contact.address || "Adres bilgisi buraya gelecek";
-    const phone = contact.phone || "+90 XXX XXX XX XX";
+    const phone = contact.phone || "+90 312 939 86 33";
+    const gsm = contact.gsm || "";
     const email = contact.email || "info@gipkon.com.tr";
 
     const socialLinks = [
@@ -121,11 +122,18 @@ export default async function Footer() {
                                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--primary-400)' }} />
                                 <span>{address}</span>
                             </li>
-                            <li className="flex items-center gap-3 text-sm" style={{ color: 'var(--footer-text)', opacity: 0.8 }}>
-                                <Phone className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--primary-400)' }} />
-                                <a href={`tel:${phone}`} className="hover:opacity-100 transition-colors">
-                                    {phone}
-                                </a>
+                            <li className="flex items-start gap-3 text-sm" style={{ color: 'var(--footer-text)', opacity: 0.8 }}>
+                                <Phone className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--primary-400)' }} />
+                                <div className="flex flex-col gap-1">
+                                    <a href={`tel:${phone}`} className="hover:opacity-100 transition-colors">
+                                        {phone}
+                                    </a>
+                                    {gsm && (
+                                        <a href={`tel:${gsm}`} className="hover:opacity-100 transition-colors">
+                                            {gsm}
+                                        </a>
+                                    )}
+                                </div>
                             </li>
                             <li className="flex items-center gap-3 text-sm" style={{ color: 'var(--footer-text)', opacity: 0.8 }}>
                                 <Mail className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--primary-400)' }} />

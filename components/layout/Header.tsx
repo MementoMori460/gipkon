@@ -99,7 +99,7 @@ export default function Header() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         {settings?.branding?.logo ? (
-                            <div className="relative h-12 w-auto aspect-[3/1]">
+                            <div className="relative h-16 w-auto aspect-[3/1]">
                                 <Image
                                     src={settings.branding.logo}
                                     alt={settings?.siteName || "GIPKON"}

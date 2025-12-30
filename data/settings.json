@@ -2,20 +2,26 @@
   "siteName": "GIPKON TEKNOLOJİ",
   "siteDescription": "Endüstriyel otomasyon çözümlerinde güvenilir iş ortağınız.",
   "branding": {
-    "logo": "/uploads/logo1.png",
-    "favicon": ""
+    "logo": "/uploads/logo.png",
+    "favicon": "/uploads/favicon.png"
   },
   "contact": {
-    "address": "İvedik O.S.B. 1468. Cadde AK İş Merkezi No: 163 / 54 - ANKARA / TÜRKİYE",
-    "phone": "+90 312 395 82 02",
-    "email": "info@gipkon.com.tr",
-    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.2483664796333!2d32.7447322!3d39.9977721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34a2161ab9dbb%3A0xa67830f2637292a5!2sSerhat%2C+1468.+Cd.+No%3A163%2C+06378+Yenimahalle%2FAnkara!5e0!3m2!1str!2str!4v1529037122084"
+    "address": "GIPKON TEKNOLOJİ San.Ve.Tic. Ltd. Şti.    \nKızılırmak Mah. Dumlupınar Bulvarı No:3C1-160 \nNext Level  Çankaya/ ANKARA",
+    "phone": "+90 312 939 86 33",
+    "gsm": "+90 530 950 07 20",
+    "email": "gipkon@gipkon.com.tr",
+    "mapUrl": "https://maps.google.com/maps?q=Next+Level+Loft+Ofis&hl=tr&z=17&output=embed"
   },
   "socialMedia": {
     "facebook": "",
     "twitter": "",
     "linkedin": "https://www.linkedin.com/company/gipkon/",
     "instagram": ""
+  },
+  "officeHours": {
+    "weekdays": "09:00 - 18:00",
+    "saturday": "09:00 - 18:00",
+    "sunday": "Kapalı"
   },
   "theme": {
     "primaryColor": "#1969d2",
