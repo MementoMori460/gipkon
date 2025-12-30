@@ -61,7 +61,6 @@ export default function SettingsPage() {
                         facebook: data.socialMedia?.facebook || "",
                         twitter: data.socialMedia?.twitter || "",
                         linkedin: data.socialMedia?.linkedin || "",
-                        linkedin: data.socialMedia?.linkedin || "",
                         instagram: data.socialMedia?.instagram || ""
                     },
                     officeHours: {
@@ -113,7 +112,6 @@ export default function SettingsPage() {
             const mergedSettings = {
                 ...currentData,
                 contact: settings.contact,
-                branding: settings.branding,
                 branding: settings.branding,
                 socialMedia: settings.socialMedia,
                 officeHours: settings.officeHours,
