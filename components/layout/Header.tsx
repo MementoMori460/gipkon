@@ -5,6 +5,12 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, ChevronDown, Facebook, Twitter, Linkedin, Instagram, Youtube, Search } from "lucide-react";
 
+declare global {
+    interface Window {
+        timeoutId: NodeJS.Timeout;
+    }
+}
+
 const navigation = [
     {
         name: "KURUMSAL",
@@ -124,9 +130,14 @@ export default function Header() {
                         {navItems.filter((item: any) => item.active).map((item: any) => (
                             <div
                                 key={item.name}
-                                className="relative"
-                                onMouseEnter={() => item.items && setActiveDropdown(item.name)}
-                                onMouseLeave={() => setActiveDropdown(null)}
+                                className="relative py-4" /* Added padding-y to create invisible bridge */
+                                onMouseEnter={() => {
+                                    if (window.timeoutId) clearTimeout(window.timeoutId);
+                                    setActiveDropdown(item.name);
+                                }}
+                                onMouseLeave={() => {
+                                    window.timeoutId = setTimeout(() => setActiveDropdown(null), 300);
+                                }}
                             >
                                 {item.items ? (
                                     <>

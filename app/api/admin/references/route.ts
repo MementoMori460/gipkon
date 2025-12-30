@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import fs from "fs";
 import path from "path";
 import { getServerSession } from "next-auth";
@@ -32,6 +33,9 @@ export async function POST(req: Request) {
 
     references.push(newReference);
     fs.writeFileSync(dataPath, JSON.stringify(references, null, 4));
+
+    revalidatePath("/referanslar");
+    revalidatePath("/admin/referanslar"); // Optional if admin list uses client-side fetch, but good for SSR pages
 
     return NextResponse.json(newReference);
 }

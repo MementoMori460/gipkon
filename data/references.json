@@ -88,5 +88,12 @@
         "name": "Promak Proses",
         "sector": "Makina",
         "image": "/images/references/PROMAK-PROSES-MAKİNALARI.png"
+    },
+    {
+        "id": 16,
+        "logo": "/images/references/placeholder.png",
+        "name": "Gipkon",
+        "sector": "Gıda",
+        "image": "/uploads/logo.png"
     }
 ]

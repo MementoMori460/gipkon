@@ -3,6 +3,8 @@ import fs from "fs";
 import path from "path";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 async function getReference(id: string) {
     const filePath = path.join(process.cwd(), "data/references.json");
     const jsonData = fs.readFileSync(filePath, "utf8");

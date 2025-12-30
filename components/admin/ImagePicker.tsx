@@ -69,19 +69,21 @@ export default function ImagePicker({ onSelect, onClose }: ImagePickerProps) {
             <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl h-[500px] flex flex-col">
                 <div className="flex justify-between items-center p-4 border-b">
                     <h3 className="text-lg font-semibold text-gray-800">Resim Seç / Yükle</h3>
-                    <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded-full">
+                    <button type="button" onClick={onClose} className="p-1 hover:bg-gray-100 rounded-full">
                         <X size={20} className="text-gray-500" />
                     </button>
                 </div>
 
                 <div className="flex border-b">
                     <button
+                        type="button"
                         className={`flex-1 py-3 text-sm font-medium ${activeTab === "upload" ? "text-primary-600 border-b-2 border-primary-600" : "text-gray-500 hover:text-gray-700"}`}
                         onClick={() => setActiveTab("upload")}
                     >
                         Yeni Yükle
                     </button>
                     <button
+                        type="button"
                         className={`flex-1 py-3 text-sm font-medium ${activeTab === "gallery" ? "text-primary-600 border-b-2 border-primary-600" : "text-gray-500 hover:text-gray-700"}`}
                         onClick={() => setActiveTab("gallery")}
                     >
@@ -102,6 +104,7 @@ export default function ImagePicker({ onSelect, onClose }: ImagePickerProps) {
                                 onChange={handleUpload}
                             />
                             <button
+                                type="button"
                                 onClick={() => fileInputRef.current?.click()}
                                 disabled={uploading}
                                 className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50"
@@ -140,6 +143,7 @@ export default function ImagePicker({ onSelect, onClose }: ImagePickerProps) {
                                             />
                                             <div className="absolute top-1 right-1 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <button
+                                                    type="button"
                                                     onClick={async (e) => {
                                                         e.stopPropagation();
                                                         if (!window.confirm("Bu resmi silmek istediğinizden emin misiniz?")) return;

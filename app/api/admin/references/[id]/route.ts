@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import fs from "fs";
 import path from "path";
 import { getServerSession } from "next-auth";
@@ -23,6 +24,9 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
 
     fs.writeFileSync(dataPath, JSON.stringify(references, null, 4));
 
+    revalidatePath("/referanslar");
+    revalidatePath("/admin/referanslar");
+
     return NextResponse.json(references[index]);
 }
 
@@ -38,6 +42,9 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
     references = references.filter((r: any) => r.id !== id);
 
     fs.writeFileSync(dataPath, JSON.stringify(references, null, 4));
+
+    revalidatePath("/referanslar");
+    revalidatePath("/admin/referanslar");
 
     return NextResponse.json({ success: true });
 }

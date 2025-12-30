@@ -10,7 +10,7 @@ import ImagePicker from "@/components/admin/ImagePicker";
 type ReferenceFormData = {
     name: string;
     sector: string;
-    logo: string;
+    image: string;
 };
 
 type Props = {
@@ -24,7 +24,7 @@ export default function ReferenceForm({ initialData, isEdit = false }: Props) {
     const [showPicker, setShowPicker] = useState(false);
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<ReferenceFormData>({
         defaultValues: initialData || {
-            logo: "/images/references/placeholder.png"
+            image: "/images/references/placeholder.png"
         }
     });
 
@@ -86,10 +86,10 @@ export default function ReferenceForm({ initialData, isEdit = false }: Props) {
             </div>
 
             <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Logo URL</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Resim URL</label>
                 <div className="flex gap-2">
                     <input
-                        {...register("logo")}
+                        {...register("image")}
                         className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 outline-none"
                     />
                     <button
@@ -121,7 +121,7 @@ export default function ReferenceForm({ initialData, isEdit = false }: Props) {
             {showPicker && (
                 <ImagePicker
                     onSelect={(url) => {
-                        setValue("logo", url);
+                        setValue("image", url);
                         setShowPicker(false);
                     }}
                     onClose={() => setShowPicker(false)}
