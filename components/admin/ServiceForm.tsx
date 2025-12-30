@@ -60,7 +60,7 @@ export default function ServiceForm({ initialData, isEdit = false }: ServiceForm
     const removeDetail = (index: number) => {
         setFormData(prev => ({
             ...prev,
-            details: prev.details.filter((_, i) => i !== index)
+            details: prev.details.filter((_: string, i: number) => i !== index)
         }));
     };
 

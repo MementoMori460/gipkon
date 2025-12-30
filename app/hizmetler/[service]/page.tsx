@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -66,10 +67,12 @@ export default async function ServicePage({ params }: PageProps) {
                 {service.image && (
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-700/80 to-transparent z-10" />
-                        <img
+                        <Image
                             src={service.image}
                             alt={service.title}
-                            className="w-full h-full object-cover object-center"
+                            fill
+                            className="object-cover object-center"
+                            priority
                         />
                     </div>
                 )}
