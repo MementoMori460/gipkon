@@ -4,7 +4,8 @@ import Link from "next/link";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import services from "@/data/services.json";
+import fs from "fs";
+import path from "path";
 
 interface PageProps {
     params: {
@@ -12,14 +13,26 @@ interface PageProps {
     };
 }
 
+async function getServices() {
+    try {
+        const filePath = path.join(process.cwd(), "data/services.json");
+        const jsonData = fs.readFileSync(filePath, "utf8");
+        return JSON.parse(jsonData);
+    } catch (error) {
+        return [];
+    }
+}
+
 export async function generateStaticParams() {
-    return services.map((service) => ({
+    const services = await getServices();
+    return services.map((service: any) => ({
         service: service.slug,
     }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const service = services.find((s) => s.slug === params.service);
+    const services = await getServices();
+    const service = services.find((s: any) => s.slug === params.service);
 
     if (!service) {
         return {
@@ -33,21 +46,35 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-export default function ServicePage({ params }: PageProps) {
-    const service = services.find((s) => s.slug === params.service);
+export default async function ServicePage({ params }: PageProps) {
+    const services = await getServices();
+    const service = services.find((s: any) => s.slug === params.service);
 
     if (!service) {
         notFound();
     }
 
     // Get related services (exclude current)
-    const relatedServices = services.filter((s) => s.id !== service.id).slice(0, 3);
+    const relatedServices = services.filter((s: any) => s.id !== service.id).slice(0, 3);
+
 
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-r from-primary-700 to-primary-600 text-white py-24">
-                <div className="container mx-auto px-4">
+            <section className="relative bg-gradient-to-r from-primary-700 to-primary-600 text-white py-24 overflow-hidden">
+                {/* Background Image with Gradient Mask */}
+                {service.image && (
+                    <div className="absolute inset-0 z-0">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-700/80 to-transparent z-10" />
+                        <img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-full object-cover object-center"
+                        />
+                    </div>
+                )}
+
+                <div className="container mx-auto px-4 relative z-20">
                     <div className="max-w-4xl">
                         <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
                             Hizmetlerimiz
@@ -55,7 +82,7 @@ export default function ServicePage({ params }: PageProps) {
                         <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
                             {service.title}
                         </h1>
-                        <p className="text-xl text-primary-100 mb-8">{service.description}</p>
+                        <p className="text-xl text-primary-100 mb-8 max-w-2xl">{service.description}</p>
                         <Link href="/iletisim">
                             <Button
                                 size="lg"
@@ -76,7 +103,7 @@ export default function ServicePage({ params }: PageProps) {
                             Hizmet Kapsamı
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {service.details.map((detail, index) => (
+                            {service.details.map((detail: string, index: number) => (
                                 <div key={index} className="flex items-start gap-4">
                                     <div className="flex-shrink-0">
                                         <CheckCircle className="w-6 h-6 text-primary-600" />
@@ -160,7 +187,7 @@ export default function ServicePage({ params }: PageProps) {
                         Diğer Hizmetlerimiz
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {relatedServices.map((relatedService) => (
+                        {relatedServices.map((relatedService: any) => (
                             <Card
                                 key={relatedService.id}
                                 title={relatedService.title}

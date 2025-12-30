@@ -57,6 +57,8 @@ export default function Header() {
     const [settings, setSettings] = useState<any>(null);
     const [menu, setMenu] = useState<any>(null);
 
+    const [services, setServices] = useState<any[]>([]);
+
     useEffect(() => {
         // Fetch Settings
         fetch("/api/admin/settings")
@@ -69,14 +71,35 @@ export default function Header() {
             .then(res => res.json())
             .then(data => setMenu(data))
             .catch(err => console.error(err));
+
+        // Fetch Services for Dynamic Menu
+        fetch("/api/admin/services")
+            .then(res => res.json())
+            .then(data => setServices(data))
+            .catch(err => console.error(err));
     }, []);
 
     // Defaults if loading or error
-    const phone = settings?.contact?.phone || "+90 XXX XXX XX XX";
-    const email = settings?.contact?.email || "info@gipkon.com.tr";
+    const phone = settings?.contact?.phone || "+90 312 939 86 33";
+    const email = settings?.contact?.email || "gipkon@gipkon.com.tr";
 
-    // Fallback static navigation if menu hasn't loaded yet
-    const navItems = menu?.header || [];
+    // Combine menu with dynamic services
+    const navItems = menu?.header?.map((item: any) => {
+        if (item.name === "HİZMETLERİMİZ") {
+            return {
+                ...item,
+                items: [
+                    { name: "Hizmetlere Genel Bakış", href: "/hizmetler", active: true },
+                    ...services.map(s => ({
+                        name: s.title,
+                        href: `/hizmetler/${s.slug}`,
+                        active: true
+                    }))
+                ]
+            };
+        }
+        return item;
+    }) || [];
 
     return (
         <header className="sticky top-0 z-50 backdrop-blur-sm border-b border-gray-200" style={{ backgroundColor: 'var(--header-bg)', color: 'var(--header-text)' }}>
@@ -91,11 +114,7 @@ export default function Header() {
                             ✉️ {email}
                         </a>
                     </div>
-                    <div className="flex gap-3">
-                        <button className="hover:text-primary-200 transition-colors">TR</button>
-                        <button className="hover:text-primary-200 transition-colors">EN</button>
-                        <button className="hover:text-primary-200 transition-colors">DE</button>
-                    </div>
+
                 </div>
             </div>
 

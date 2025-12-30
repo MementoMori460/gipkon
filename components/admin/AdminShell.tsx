@@ -16,7 +16,8 @@ import {
     Settings,
     List,
     Database,
-    Paintbrush
+    Paintbrush,
+    Layout
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +40,18 @@ const menuItems = [
     {
         title: "İçerik",
         items: [
-            { name: "Projeler", href: "/admin/projects", icon: FolderKanban },
+            {
+                name: "Hizmetler",
+                href: "/admin/services",
+                icon: Layout,
+                isActive: (path: string) => path.startsWith("/admin/services"),
+            },
+            {
+                name: "Projeler",
+                href: "/admin/projects",
+                icon: FolderKanban,
+                isActive: (path: string) => path.startsWith("/admin/projects"),
+            },
             { name: "Referanslar", href: "/admin/references", icon: Users },
             { name: "Sektörler", href: "/admin/sectors", icon: Factory },
         ]

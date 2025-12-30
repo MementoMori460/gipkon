@@ -58,64 +58,8 @@
         {
             "id": "hizmetler",
             "name": "HİZMETLERİMİZ",
-            "active": true,
-            "items": [
-                {
-                    "name": "Hizmetlere Genel Bakış",
-                    "href": "/hizmetler",
-                    "active": true
-                },
-                {
-                    "name": "Proje & Danışmanlık",
-                    "href": "/hizmetler/proje-danismanlik",
-                    "active": true
-                },
-                {
-                    "name": "Anahtar Teslim Tesisler",
-                    "href": "/hizmetler/anahtar-teslim-tesisler",
-                    "active": true
-                },
-                {
-                    "name": "Fabrika Revizyonları",
-                    "href": "/hizmetler/fabrika-revizyonlari",
-                    "active": true
-                },
-                {
-                    "name": "Sistem Geliştirmeleri",
-                    "href": "/hizmetler/sistem-gelistirmeleri",
-                    "active": true
-                },
-                {
-                    "name": "Keşif & Risk Analizi",
-                    "href": "/hizmetler/kesif-risk-analizi",
-                    "active": true
-                },
-                {
-                    "name": "Devreye Alma",
-                    "href": "/hizmetler/devreye-alma",
-                    "active": true
-                },
-                {
-                    "name": "Servis (7/24 Teknik Destek)",
-                    "href": "/hizmetler/servis",
-                    "active": true
-                },
-                {
-                    "name": "Yedek Parça Tedariği",
-                    "href": "/hizmetler/yedek-parca",
-                    "active": true
-                },
-                {
-                    "name": "Dokümantasyon & Eğitim",
-                    "href": "/hizmetler/dokumantasyon",
-                    "active": true
-                },
-                {
-                    "name": "Hizmet & Teklif Talebi",
-                    "href": "/hizmet-talebi",
-                    "active": true
-                }
-            ]
+            "href": "/hizmetler",
+            "active": true
         },
         {
             "id": "servis",
@@ -165,53 +109,6 @@
             {
                 "name": "İletişim",
                 "href": "/iletisim",
-                "active": true
-            }
-        ],
-        "services": [
-            {
-                "name": "Proje & Danışmanlık",
-                "href": "/hizmetler/proje-danismanlik",
-                "active": true
-            },
-            {
-                "name": "Anahtar Teslim Tesisler",
-                "href": "/hizmetler/anahtar-teslim-tesisler",
-                "active": true
-            },
-            {
-                "name": "Fabrika Revizyonları",
-                "href": "/hizmetler/fabrika-revizyonlari",
-                "active": true
-            },
-            {
-                "name": "Sistem Geliştirmeleri",
-                "href": "/hizmetler/sistem-gelistirmeleri",
-                "active": true
-            },
-            {
-                "name": "Keşif & Risk Analizi",
-                "href": "/hizmetler/kesif-risk-analizi",
-                "active": true
-            },
-            {
-                "name": "Devreye Alma",
-                "href": "/hizmetler/devreye-alma",
-                "active": true
-            },
-            {
-                "name": "Servis",
-                "href": "/hizmetler/servis",
-                "active": true
-            },
-            {
-                "name": "Yedek Parça",
-                "href": "/hizmetler/yedek-parca",
-                "active": true
-            },
-            {
-                "name": "Dokümantasyon",
-                "href": "/hizmetler/dokumantasyon",
                 "active": true
             }
         ]

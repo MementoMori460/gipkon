@@ -23,18 +23,29 @@ async function getMenu() {
     }
 }
 
+async function getServices() {
+    try {
+        const filePath = path.join(process.cwd(), "data/services.json");
+        const jsonData = fs.readFileSync(filePath, "utf8");
+        return JSON.parse(jsonData);
+    } catch (error) {
+        return [];
+    }
+}
+
 export default async function Footer() {
     const settings = await getSettings();
     const menu = await getMenu();
+    const servicesData = await getServices();
 
     // Default values if settings missing
     const contact = settings?.contact || {};
     const social = settings?.socialMedia || {};
 
-    const address = contact.address || "Adres bilgisi buraya gelecek";
+    const address = contact.address || "GIPKON TEKNOLOJİ San.Ve.Tic. Ltd. Şti. Kızılırmak Mah. Dumlupınar Bulvarı No:3C1-160 Next Level Çankaya/ ANKARA";
     const phone = contact.phone || "+90 312 939 86 33";
-    const gsm = contact.gsm || "";
-    const email = contact.email || "info@gipkon.com.tr";
+    const gsm = contact.gsm || "+90 530 950 07 20";
+    const email = contact.email || "gipkon@gipkon.com.tr";
 
     const socialLinks = [
         { icon: Facebook, href: social.facebook || "#", label: "Facebook" },
@@ -44,7 +55,13 @@ export default async function Footer() {
     ];
 
     const quickLinks = menu?.footer?.quickLinks || [];
-    const services = menu?.footer?.services || [];
+
+    // Map services from JSON to footer link format
+    const services = servicesData.map((s: any) => ({
+        name: s.title,
+        href: `/hizmetler/${s.slug}`,
+        active: true
+    }));
 
     return (
         <footer style={{ backgroundColor: 'var(--footer-bg)', color: 'var(--footer-text)' }}>

@@ -1,13 +1,26 @@
 import { Metadata } from "next";
 import Card from "@/components/ui/Card";
-import services from "@/data/services.json";
+import fs from "fs";
+import path from "path";
+
+async function getServices() {
+    try {
+        const filePath = path.join(process.cwd(), "data/services.json");
+        const jsonData = fs.readFileSync(filePath, "utf8");
+        return JSON.parse(jsonData);
+    } catch (error) {
+        return [];
+    }
+}
 
 export const metadata: Metadata = {
     title: "Hizmetlerimiz - GIPKON TEKNOLOJİ",
     description: "Proje danışmanlığından devreye almaya kadar tam kapsamlı otomasyon hizmetleri",
 };
 
-export default function HizmetlerPage() {
+export default async function HizmetlerPage() {
+    const services = await getServices();
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -26,7 +39,7 @@ export default function HizmetlerPage() {
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {services.map((service) => (
+                        {services.map((service: any) => (
                             <Card
                                 key={service.id}
                                 title={service.title}

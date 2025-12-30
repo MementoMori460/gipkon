@@ -195,33 +195,6 @@ export default function MenuPage() {
                     </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Alt Menü (Hizmetlerimiz)</h2>
-                    <div className="space-y-2">
-                        {menu.footer.services.map((item: any, idx: number) => (
-                            <div key={idx} className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 border border-transparent hover:border-gray-100">
-                                <input
-                                    type="text"
-                                    value={item.name}
-                                    onChange={(e) => handleFooterChange("services", idx, "name", e.target.value)}
-                                    className="border px-2 py-1 rounded w-1/2 text-sm"
-                                />
-                                <input
-                                    type="text"
-                                    value={item.href}
-                                    onChange={(e) => handleFooterChange("services", idx, "href", e.target.value)}
-                                    className="border px-2 py-1 rounded w-1/2 text-sm text-gray-600 font-mono"
-                                />
-                                <button
-                                    onClick={() => handleFooterChange("services", idx, "active", !item.active)}
-                                    className={`w-8 h-4 flex-shrink-0 flex items-center rounded-full p-0.5 transition-colors ${item.active ? 'bg-primary-600 justify-end' : 'bg-gray-300 justify-start'}`}
-                                >
-                                    <div className="w-3 h-3 bg-white rounded-full shadow-sm" />
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
         </div>
     );
