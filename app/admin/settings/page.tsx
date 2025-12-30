@@ -20,6 +20,7 @@ export default function SettingsPage() {
         contact: {
             address: "",
             phone: "",
+            gsm: "",
             email: "",
             mapUrl: ""
         },
