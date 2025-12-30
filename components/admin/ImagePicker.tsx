@@ -123,24 +123,50 @@ export default function ImagePicker({ onSelect, onClose }: ImagePickerProps) {
                                     {images.map((img) => (
                                         <div
                                             key={img.url}
-                                            className="group relative aspect-square border rounded-lg overflow-hidden cursor-pointer hover:border-primary-500"
-                                            onClick={() => {
-                                                onSelect(img.url);
-                                                onClose();
-                                            }}
+                                            className="group relative aspect-square border rounded-lg overflow-hidden hover:border-primary-500"
                                         >
+                                            <div
+                                                className="absolute inset-0 cursor-pointer"
+                                                onClick={() => {
+                                                    onSelect(img.url);
+                                                    onClose();
+                                                }}
+                                            />
                                             <Image
                                                 src={img.url}
                                                 alt={img.name}
                                                 fill
                                                 className="object-cover"
                                             />
-                                            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
-                                                <div className="opacity-0 group-hover:opacity-100 bg-primary-600 text-white text-xs px-2 py-1 rounded">
-                                                    Seç
-                                                </div>
+                                            <div className="absolute top-1 right-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <button
+                                                    onClick={async (e) => {
+                                                        e.stopPropagation();
+                                                        if (!window.confirm("Bu resmi silmek istediğinizden emin misiniz?")) return;
+
+                                                        try {
+                                                            const res = await fetch("/api/admin/media/delete", {
+                                                                method: "POST",
+                                                                headers: { "Content-Type": "application/json" },
+                                                                body: JSON.stringify({ filename: img.name }),
+                                                            });
+                                                            if (res.ok) {
+                                                                setImages(prev => prev.filter(i => i.name !== img.name));
+                                                            } else {
+                                                                alert("Silinemedi");
+                                                            }
+                                                        } catch (err) {
+                                                            console.error("Delete error", err);
+                                                            alert("Hata oluştu");
+                                                        }
+                                                    }}
+                                                    className="p-1.5 bg-red-500 text-white rounded-full hover:bg-red-600 shadow-md"
+                                                    title="Sil"
+                                                >
+                                                    <Trash2 size={14} />
+                                                </button>
                                             </div>
-                                            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-[10px] p-1 truncate">
+                                            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-[10px] p-1 truncate pointer-events-none">
                                                 {img.name}
                                             </div>
                                         </div>

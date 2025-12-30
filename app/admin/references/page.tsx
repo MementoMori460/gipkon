@@ -42,7 +42,11 @@ export default async function ReferencesPage() {
                             <tr key={ref.id} className="hover:bg-gray-50 transition-colors">
                                 <td className="px-6 py-4 text-gray-500 font-mono">#{ref.id}</td>
                                 <td className="px-6 py-4 font-medium text-gray-900">{ref.name}</td>
-                                <td className="px-6 py-4 bg-yellow-50 inline-block m-2 rounded">{ref.sector}</td>
+                                <td className="px-6 py-4">
+                                    <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">
+                                        {ref.sector}
+                                    </span>
+                                </td>
                                 <td className="px-6 py-4 text-right">
                                     <div className="flex justify-end gap-2">
                                         <Link

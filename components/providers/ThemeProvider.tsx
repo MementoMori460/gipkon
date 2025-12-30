@@ -111,6 +111,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
                 // Header
                 if (t.header?.background) root.style.setProperty('--header-bg', t.header.background);
                 if (t.header?.textColor) root.style.setProperty('--header-text', t.header.textColor);
+                if (t.header?.contactTextColor) root.style.setProperty('--header-contact-text', t.header.contactTextColor);
+                if (t.header?.navTextColor) root.style.setProperty('--header-nav-text', t.header.navTextColor);
 
                 // Footer
                 if (t.footer?.background) root.style.setProperty('--footer-bg', t.footer.background);

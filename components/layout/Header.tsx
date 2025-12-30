@@ -75,7 +75,7 @@ export default function Header() {
     return (
         <header className="sticky top-0 z-50 backdrop-blur-sm border-b border-gray-200" style={{ backgroundColor: 'var(--header-bg)', color: 'var(--header-text)' }}>
             {/* Top Bar */}
-            <div className="py-2" style={{ backgroundColor: 'var(--primary-700)', color: 'var(--primary-foreground)' }}>
+            <div className="py-2" style={{ backgroundColor: 'var(--primary-700)', color: 'var(--header-contact-text)' }}>
                 <div className="container mx-auto px-4 flex justify-between items-center text-sm">
                     <div className="flex gap-4">
                         <a href={`tel:${phone}`} className="hover:text-primary-200 transition-colors">
@@ -130,7 +130,10 @@ export default function Header() {
                             >
                                 {item.items ? (
                                     <>
-                                        <button className="px-4 py-2 text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors flex items-center gap-1">
+                                        <button
+                                            className="px-4 py-2 text-sm font-medium hover:text-primary-600 transition-colors flex items-center gap-1"
+                                            style={{ color: 'var(--header-nav-text)' }}
+                                        >
                                             {item.name}
                                             <ChevronDown className="w-4 h-4" />
                                         </button>
@@ -152,7 +155,7 @@ export default function Header() {
                                     <Link
                                         href={item.href || "#"}
                                         className="px-4 py-2 text-sm font-medium hover:opacity-80 transition-colors"
-                                        style={{ color: 'var(--header-text)' }}
+                                        style={{ color: 'var(--header-nav-text)' }}
                                     >
                                         {item.name}
                                     </Link>

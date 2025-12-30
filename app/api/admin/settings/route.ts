@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { revalidatePath } from "next/cache";
 
 const filePath = path.join(process.cwd(), "data/settings.json");
 
@@ -20,6 +21,10 @@ export async function POST(request: Request) {
         // Basic validation could go here
 
         fs.writeFileSync(filePath, JSON.stringify(body, null, 2), "utf8");
+
+        // Purge cache to update Footer and other static components
+        revalidatePath("/", "layout");
+
         return NextResponse.json({ success: true, data: body });
     } catch (error) {
         console.error(error);

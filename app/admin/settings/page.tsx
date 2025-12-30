@@ -3,13 +3,19 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
-import { Save, RefreshCw } from "lucide-react";
+import { Save, RefreshCw, Image as ImageIcon } from "lucide-react";
+import ImagePicker from "@/components/admin/ImagePicker";
 
 export default function SettingsPage() {
     const router = useRouter();
     const { refreshTheme } = useTheme();
     const [isLoading, setIsLoading] = useState(true);
     const [isSaving, setIsSaving] = useState(false);
+
+    // Picker states
+    const [showLogoPicker, setShowLogoPicker] = useState(false);
+    const [showFaviconPicker, setShowFaviconPicker] = useState(false);
+
     const [settings, setSettings] = useState({
         contact: {
             address: "",
@@ -26,6 +32,12 @@ export default function SettingsPage() {
             twitter: "",
             linkedin: "",
             instagram: ""
+        },
+        theme: {
+            header: {
+                contactTextColor: "",
+                navTextColor: ""
+            }
         }
     });
 
@@ -33,7 +45,6 @@ export default function SettingsPage() {
         fetch("/api/admin/settings")
             .then((res) => res.json())
             .then((data) => {
-                // Ensure checking for nulls to avoid uncontrolled input errors
                 setSettings({
                     contact: {
                         address: data.contact?.address || "",
@@ -50,6 +61,12 @@ export default function SettingsPage() {
                         twitter: data.socialMedia?.twitter || "",
                         linkedin: data.socialMedia?.linkedin || "",
                         instagram: data.socialMedia?.instagram || ""
+                    },
+                    theme: {
+                        header: {
+                            contactTextColor: data.theme?.header?.contactTextColor || "#ffffff",
+                            navTextColor: data.theme?.header?.navTextColor || "#334155"
+                        }
                     }
                 });
                 setIsLoading(false);
@@ -61,28 +78,34 @@ export default function SettingsPage() {
     }, []);
 
     const handleChange = (section: string, field: string, value: string) => {
-        setSettings((prev: any) => ({
-            ...prev,
-            [section]: {
-                ...prev[section],
-                [field]: value
+        setSettings((prev: any) => {
+            if (section === "theme.header") {
+                return {
+                    ...prev,
+                    theme: {
+                        ...prev.theme,
+                        header: {
+                            ...prev.theme.header,
+                            [field]: value
+                        }
+                    }
+                };
             }
-        }));
+
+            return {
+                ...prev,
+                [section]: {
+                    ...prev[section],
+                    [field]: value
+                }
+            };
+        });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSaving(true);
-
         try {
-            // We need to fetch existing settings first to merge, so we don't overwrite theme settings
-            // But since this page doesn't touch theme settings anymore, simpler is to just send what we have
-            // However, the backend likely overwrites the whole file. 
-            // So we should ideally have fetched the whole object in the beginning.
-            // Let's rely on the API implementation. If existing API overwrites, we need to be careful.
-            // Assuming we need to merge with current theme settings which we might not have in state.
-
-            // Re-fetch latest to get current theme
             const currentRes = await fetch("/api/admin/settings");
             const currentData = await currentRes.json();
 
@@ -90,7 +113,14 @@ export default function SettingsPage() {
                 ...currentData,
                 contact: settings.contact,
                 branding: settings.branding,
-                socialMedia: settings.socialMedia
+                socialMedia: settings.socialMedia,
+                theme: {
+                    ...currentData.theme,
+                    header: {
+                        ...currentData.theme?.header,
+                        ...settings.theme.header
+                    }
+                }
             };
 
             const res = await fetch("/api/admin/settings", {
@@ -181,24 +211,42 @@ export default function SettingsPage() {
                     <div className="space-y-4">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Logo URL</label>
-                            <input
-                                type="text"
-                                value={settings.branding?.logo || ""}
-                                onChange={(e) => handleChange("branding", "logo", e.target.value)}
-                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none text-sm"
-                                placeholder="https://example.com/logo.png"
-                            />
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    value={settings.branding?.logo || ""}
+                                    onChange={(e) => handleChange("branding", "logo", e.target.value)}
+                                    className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none text-sm"
+                                    placeholder="https://example.com/logo.png"
+                                />
+                                <button
+                                    onClick={() => setShowLogoPicker(true)}
+                                    className="px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200"
+                                    title="Galeriden Seç / Yükle"
+                                >
+                                    <ImageIcon size={20} />
+                                </button>
+                            </div>
                             <p className="text-xs text-gray-500 mt-1">Header ve Admin panelde görünecek logo adresi.</p>
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Favicon URL</label>
-                            <input
-                                type="text"
-                                value={settings.branding?.favicon || ""}
-                                onChange={(e) => handleChange("branding", "favicon", e.target.value)}
-                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none text-sm"
-                                placeholder="https://example.com/favicon.ico"
-                            />
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    value={settings.branding?.favicon || ""}
+                                    onChange={(e) => handleChange("branding", "favicon", e.target.value)}
+                                    className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none text-sm"
+                                    placeholder="https://example.com/favicon.ico"
+                                />
+                                <button
+                                    onClick={() => setShowFaviconPicker(true)}
+                                    className="px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200"
+                                    title="Galeriden Seç / Yükle"
+                                >
+                                    <ImageIcon size={20} />
+                                </button>
+                            </div>
                             <p className="text-xs text-gray-500 mt-1">Tarayıcı sekmesinde görünecek ikon adresi.</p>
                         </div>
                     </div>
@@ -247,6 +295,65 @@ export default function SettingsPage() {
                     </div>
                 </div>
             </div>
+
+            {/* Theme Settings */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
+                <h2 className="text-lg font-semibold mb-4 pb-2 border-b">Görünüm Ayarları</h2>
+                <div className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Üst Bar Yazı Rengi</label>
+                        <div className="flex items-center gap-3">
+                            <input
+                                type="color"
+                                value={settings.theme.header.contactTextColor}
+                                onChange={(e) => handleChange("theme.header", "contactTextColor", e.target.value)}
+                                className="h-10 w-16 p-1 rounded border cursor-pointer"
+                            />
+                            <input
+                                type="text"
+                                value={settings.theme.header.contactTextColor}
+                                onChange={(e) => handleChange("theme.header", "contactTextColor", e.target.value)}
+                                className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none uppercase"
+                                placeholder="#FFFFFF"
+                            />
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">Telefon ve E-posta yazılarının rengi.</p>
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Menü Yazı Rengi</label>
+                        <div className="flex items-center gap-3">
+                            <input
+                                type="color"
+                                value={settings.theme.header.navTextColor}
+                                onChange={(e) => handleChange("theme.header", "navTextColor", e.target.value)}
+                                className="h-10 w-16 p-1 rounded border cursor-pointer"
+                            />
+                            <input
+                                type="text"
+                                value={settings.theme.header.navTextColor}
+                                onChange={(e) => handleChange("theme.header", "navTextColor", e.target.value)}
+                                className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none uppercase"
+                                placeholder="#334155"
+                            />
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">Ana menü linklerinin rengi.</p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Pickers */}
+            {showLogoPicker && (
+                <ImagePicker
+                    onSelect={(url) => handleChange("branding", "logo", url)}
+                    onClose={() => setShowLogoPicker(false)}
+                />
+            )}
+            {showFaviconPicker && (
+                <ImagePicker
+                    onSelect={(url) => handleChange("branding", "favicon", url)}
+                    onClose={() => setShowFaviconPicker(false)}
+                />
+            )}
         </div>
     );
 }

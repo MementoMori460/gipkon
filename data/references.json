@@ -2,49 +2,91 @@
     {
         "id": 1,
         "name": "Gemak Gıda End. Makinaları",
-        "image": "/images/references/gemak.png",
-        "sector": "Gıda Endüstris"
+        "sector": "Gıda",
+        "image": "/images/references/GEMAK-GIDA-END.-MAKİNALARI.png"
     },
     {
         "id": 2,
         "name": "Roketsan A.Ş.",
-        "image": "/images/references/roketsan.png",
-        "sector": "Savunma Sanayi"
+        "sector": "Savunma Sanayi",
+        "image": "/images/references/ROKETSAN-A.Ş..png"
     },
     {
         "id": 3,
         "name": "Smart Proses",
-        "image": "/images/references/smart-proses.png",
-        "sector": "Proses Otomasyonu"
+        "sector": "Otomasyon",
+        "image": "/images/references/SMART-PROSES-300x100.jpg"
     },
     {
         "id": 4,
         "name": "Neosis",
-        "image": "/images/references/neosis.png",
-        "sector": "Otomasyon Sistemleri"
+        "sector": "Otomasyon",
+        "image": "/images/references/NEOSİS.png"
     },
     {
         "id": 5,
         "name": "Eti Gıda",
-        "image": "/images/references/eti.png",
-        "sector": "Gıda Sanayi"
+        "sector": "Gıda",
+        "image": "/images/references/ETİ-GIDA.png"
     },
     {
         "id": 6,
         "name": "Çamlıca Gıda",
-        "image": "/images/references/camlica.png",
-        "sector": "Gıda Sanayi"
+        "sector": "Gıda",
+        "image": "/images/references/ÇAMLICA-GIDA.png"
     },
     {
         "id": 7,
         "name": "Altın Köy",
-        "image": "/images/references/altin-koy.png",
-        "sector": "Gıda ve Turizm"
+        "sector": "Gıda",
+        "image": "/images/references/ALTIN-KÖY-300x100.png"
     },
     {
         "id": 8,
         "name": "Amak Co.",
-        "image": "/images/references/amak.png",
-        "sector": "Endüstriyel Çözümler"
+        "sector": "Endüstri",
+        "image": "/images/references/AMAK-CO.-300x100.png"
+    },
+    {
+        "id": 9,
+        "name": "Azersud",
+        "sector": "Gıda",
+        "image": "/images/references/logo_azersud.png"
+    },
+    {
+        "id": 10,
+        "name": "Pharmactive",
+        "sector": "İlaç",
+        "image": "/images/references/Pharmactive-300x135-300x135.png"
+    },
+    {
+        "id": 11,
+        "name": "Baymina Engie",
+        "sector": "Enerji",
+        "image": "/images/references/Baymina-engie.jpg"
+    },
+    {
+        "id": 12,
+        "name": "MKEK",
+        "sector": "Savunma Sanayi",
+        "image": "/images/references/MKEK.png"
+    },
+    {
+        "id": 13,
+        "name": "Tada Gıda",
+        "sector": "Gıda",
+        "image": "/images/references/Tada-Gida.png"
+    },
+    {
+        "id": 14,
+        "name": "Tepe Betopan",
+        "sector": "İnşaat",
+        "image": "/images/references/Tepe-Betopan.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Promak Proses",
+        "sector": "Makina",
+        "image": "/images/references/PROMAK-PROSES-MAKİNALARI.png"
     }
 ]

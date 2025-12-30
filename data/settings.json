@@ -2,7 +2,7 @@
   "siteName": "GIPKON TEKNOLOJİ",
   "siteDescription": "Endüstriyel otomasyon çözümlerinde güvenilir iş ortağınız.",
   "branding": {
-    "logo": "/uploads/gipkon_otomasyon_logo-2018.png",
+    "logo": "/uploads/logo1.png",
     "favicon": ""
   },
   "contact": {
@@ -18,13 +18,15 @@
     "instagram": ""
   },
   "theme": {
-    "primaryColor": "#475569",
+    "primaryColor": "#1969d2",
     "secondaryColor": "#94a3b8",
     "backgroundColor": "#ffffff",
     "textColor": "#334155",
     "header": {
       "background": "#ffffff",
-      "textColor": "#334155"
+      "textColor": "#ffffff",
+      "contactTextColor": "#ffffff",
+      "navTextColor": "#334155"
     },
     "footer": {
       "background": "#f8fafc",

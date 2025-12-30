@@ -9,7 +9,7 @@ export default function DeleteReferenceButton({ id }: { id: number }) {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleDelete = async () => {
-        if (!confirm("Bu referansı silmek istediğinizden emin misiniz?")) return;
+        if (!window.confirm("Bu referansı silmek istediğinizden emin misiniz?")) return;
 
         setIsLoading(true);
         try {

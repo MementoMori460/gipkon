@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 interface Reference {
     id: number;
-    logo: string;
+    image: string;
     name: string;
     sector: string;
 }
@@ -51,7 +51,7 @@ export default async function ReferencesPage() {
                                 >
                                     <div className="relative w-32 h-32 mb-4 grayscale group-hover:grayscale-0 transition-all duration-300">
                                         <Image
-                                            src={ref.logo}
+                                            src={ref.image}
                                             alt={ref.name}
                                             fill
                                             className="object-contain"
