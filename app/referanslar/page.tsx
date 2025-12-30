@@ -49,12 +49,12 @@ export default async function ReferencesPage() {
                                     key={ref.id}
                                     className="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-xl hover:shadow-md transition-shadow group border border-gray-100"
                                 >
-                                    <div className="relative w-32 h-32 mb-4 grayscale group-hover:grayscale-0 transition-all duration-300">
+                                    <div className="relative w-64 h-32 mb-4 grayscale group-hover:grayscale-0 transition-all duration-300">
                                         <Image
                                             src={ref.image}
                                             alt={ref.name}
                                             fill
-                                            className="object-contain"
+                                            className="object-contain px-2"
                                         />
                                     </div>
                                     <h3 className="text-lg font-semibold text-gray-900 text-center mb-1">
